@@ -69,7 +69,7 @@ export function WorkspaceCreateForm() {
               setToast({
                 type: "success",
                 title: "Success!",
-                message: "Workspace created successfully.",
+                message: "工作区创建成功。",
               });
               router.push(`/workspace`);
             })
@@ -77,7 +77,7 @@ export function WorkspaceCreateForm() {
               setToast({
                 type: "error",
                 title: "Error!",
-                message: "Workspace could not be created. Please try again.",
+                message: "工作区创建失败，请重试。",
               });
             });
         } else setSlugError(true);
@@ -86,7 +86,7 @@ export function WorkspaceCreateForm() {
         setToast({
           type: "error",
           title: "Error!",
-          message: "Some error occurred while creating workspace. Please try again.",
+          message: "创建工作区时发生错误，请重试。",
         });
       });
   };
@@ -214,7 +214,7 @@ export function WorkspaceCreateForm() {
           onClick={handleSubmit(handleCreateWorkspace)}
           disabled={!isValid}
           loading={isSubmitting}
-          label={isSubmitting ? "Creating workspace" : "Create workspace"}
+          label={isSubmitting ? "正在创建工作区" : "创建工作区"}
         />
         <Button
           variant="secondary"
@@ -222,7 +222,7 @@ export function WorkspaceCreateForm() {
           stretch="auto"
           nativeButton={false}
           render={<Link href="/workspace" />}
-          label="Go back"
+          label="返回"
         />
       </div>
     </div>

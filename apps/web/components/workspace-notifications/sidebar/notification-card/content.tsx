@@ -89,7 +89,7 @@ export const BASE_NOTIFICATION_CONTENT_MAP: TNotificationContentMap = {
     showConnector: false,
   }),
   archived_at: ({ newValue }) => ({
-    action: newValue === "restore" ? "restored the work item" : "archived the work item",
+    action: newValue === "restore" ? "恢复了此工作项" : "归档了此工作项",
     value: null,
     showConnector: false,
   }),

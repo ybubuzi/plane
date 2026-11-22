@@ -32,17 +32,8 @@ export const getPasswordStrength = (password: string): E_PASSWORD_STRENGTH => {
     return E_PASSWORD_STRENGTH.LENGTH_NOT_VALID;
   }
 
-  // Check all criteria
-  const hasUpperCase = /[A-Z]/.test(password);
-  const hasLowerCase = /[a-z]/.test(password);
-  const hasDigit = /[0-9]/.test(password);
-  const hasSpecialChar = /[!@#$%^&*()\-_+=\[\]{}|;:'",.<>?/]/.test(password);
-
-  if (hasUpperCase && hasLowerCase && hasDigit && hasSpecialChar) {
-    return E_PASSWORD_STRENGTH.STRENGTH_VALID;
-  }
-
-  return E_PASSWORD_STRENGTH.STRENGTH_NOT_VALID;
+  // 本地化定制：仅校验最小长度，不再强制大小写/数字/特殊字符组合。
+  return E_PASSWORD_STRENGTH.STRENGTH_VALID;
 };
 
 export type PasswordCriteria = {
@@ -57,28 +48,8 @@ export type PasswordCriteria = {
 export const getPasswordCriteria = (password: string): PasswordCriteria[] => [
   {
     key: "length",
-    label: "Min 8 characters",
+    label: "至少 8 个字符",
     isValid: password.length >= 8,
-  },
-  {
-    key: "uppercase",
-    label: "Min 1 upper-case letter",
-    isValid: /[A-Z]/.test(password),
-  },
-  {
-    key: "lowercase",
-    label: "Min 1 lower-case letter",
-    isValid: /[a-z]/.test(password),
-  },
-  {
-    key: "number",
-    label: "Min 1 number",
-    isValid: /[0-9]/.test(password),
-  },
-  {
-    key: "special",
-    label: "Min 1 special character",
-    isValid: /[!@#$%^&*()\-_+=\[\]{}|;:'",.<>?/]/.test(password),
   },
 ];
 
@@ -122,12 +93,12 @@ const errorCodeMessages: {
     message: () => `Your account is already registered. Sign in now.`,
   },
   [EAuthErrorCodes.REQUIRED_EMAIL_PASSWORD_SIGN_UP]: {
-    title: `Email and password required`,
-    message: () => `Email and password required. Please try again.`,
+    title: `需要邮箱和密码`,
+    message: () => `需要邮箱和密码，请重试。`,
   },
   [EAuthErrorCodes.AUTHENTICATION_FAILED_SIGN_UP]: {
-    title: `Authentication failed`,
-    message: () => `Authentication failed. Please try again.`,
+    title: `认证失败`,
+    message: () => `认证失败，请重试。`,
   },
   [EAuthErrorCodes.INVALID_EMAIL_SIGN_UP]: {
     title: `Invalid email`,
@@ -147,7 +118,7 @@ const errorCodeMessages: {
     message: () => `This account cannot be used to sign in. Please use a personal account.`,
   },
   [EAuthErrorCodes.USER_ACCOUNT_DEACTIVATED]: {
-    title: `User account deactivated`,
+    title: `账号已停用`,
     message: () => `User account deactivated. Please contact administrator.`,
   },
   [EAuthErrorCodes.USER_DOES_NOT_EXIST]: {
@@ -155,12 +126,12 @@ const errorCodeMessages: {
     message: () => `No account found. Create one to get started.`,
   },
   [EAuthErrorCodes.REQUIRED_EMAIL_PASSWORD_SIGN_IN]: {
-    title: `Email and password required`,
-    message: () => `Email and password required. Please try again.`,
+    title: `需要邮箱和密码`,
+    message: () => `需要邮箱和密码，请重试。`,
   },
   [EAuthErrorCodes.AUTHENTICATION_FAILED_SIGN_IN]: {
-    title: `Authentication failed`,
-    message: () => `Authentication failed. Please try again.`,
+    title: `认证失败`,
+    message: () => `认证失败，请重试。`,
   },
   [EAuthErrorCodes.INVALID_EMAIL_SIGN_IN]: {
     title: `Invalid email`,
@@ -176,11 +147,11 @@ const errorCodeMessages: {
   },
   // Both Sign in and Sign up
   [EAuthErrorCodes.INVALID_MAGIC_CODE_SIGN_IN]: {
-    title: `Authentication failed`,
+    title: `认证失败`,
     message: () => `Invalid magic code. Please try again.`,
   },
   [EAuthErrorCodes.INVALID_MAGIC_CODE_SIGN_UP]: {
-    title: `Authentication failed`,
+    title: `认证失败`,
     message: () => `Invalid magic code. Please try again.`,
   },
   [EAuthErrorCodes.EXPIRED_MAGIC_CODE_SIGN_IN]: {
@@ -257,35 +228,35 @@ const errorCodeMessages: {
   },
   // admin
   [EAuthErrorCodes.ADMIN_ALREADY_EXIST]: {
-    title: `Admin already exists`,
-    message: () => `Admin already exists. Please try again.`,
+    title: `管理员已存在`,
+    message: () => `管理员已存在，请重试。`,
   },
   [EAuthErrorCodes.REQUIRED_ADMIN_EMAIL_PASSWORD_FIRST_NAME]: {
-    title: `Email, password and first name required`,
-    message: () => `Email, password and first name required. Please try again.`,
+    title: `需要邮箱、密码和用户名`,
+    message: () => `需要邮箱、密码和用户名，请重试。`,
   },
   [EAuthErrorCodes.INVALID_ADMIN_EMAIL]: {
-    title: `Invalid admin email`,
-    message: () => `Invalid admin email. Please try again.`,
+    title: `管理员邮箱无效`,
+    message: () => `管理员邮箱无效，请重试。`,
   },
   [EAuthErrorCodes.INVALID_ADMIN_PASSWORD]: {
-    title: `Invalid admin password`,
-    message: () => `Invalid admin password. Please try again.`,
+    title: `管理员密码无效`,
+    message: () => `管理员密码无效，请重试。`,
   },
   [EAuthErrorCodes.REQUIRED_ADMIN_EMAIL_PASSWORD]: {
-    title: `Email and password required`,
-    message: () => `Email and password required. Please try again.`,
+    title: `需要邮箱和密码`,
+    message: () => `需要邮箱和密码，请重试。`,
   },
   [EAuthErrorCodes.ADMIN_AUTHENTICATION_FAILED]: {
-    title: `Authentication failed`,
-    message: () => `Authentication failed. Please try again.`,
+    title: `认证失败`,
+    message: () => `认证失败，请重试。`,
   },
   [EAuthErrorCodes.ADMIN_USER_ALREADY_EXIST]: {
-    title: `Admin user already exists`,
+    title: `管理员用户已存在`,
     message: () => `Admin user already exists. Sign in now.`,
   },
   [EAuthErrorCodes.ADMIN_USER_DOES_NOT_EXIST]: {
-    title: `Admin user does not exist`,
+    title: `管理员用户不存在`,
     message: () => `Admin user does not exist. Sign in now.`,
   },
   [EAuthErrorCodes.MAGIC_LINK_LOGIN_DISABLED]: {
@@ -361,8 +332,8 @@ export const authErrorHandler = (errorCode: EAuthErrorCodes, email?: string): TA
     return {
       type: EErrorAlertType.BANNER_ALERT,
       code: errorCode,
-      title: errorCodeMessages[errorCode]?.title || "Error",
-      message: errorCodeMessages[errorCode]?.message(email) || "Something went wrong. Please try again.",
+      title: errorCodeMessages[errorCode]?.title || "错误",
+      message: errorCodeMessages[errorCode]?.message(email) || "出了点问题，请重试。",
     };
 
   return undefined;

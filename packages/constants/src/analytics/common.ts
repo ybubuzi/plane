@@ -179,7 +179,7 @@ export const ANALYTICS_Y_AXIS_VALUES: { value: ChartYAxisMetric; label: string }
   },
   {
     value: ChartYAxisMetric.ESTIMATE_POINT_COUNT,
-    label: "Estimate",
+    label: "估算",
   },
   {
     value: ChartYAxisMetric.EPIC_WORK_ITEM_COUNT,

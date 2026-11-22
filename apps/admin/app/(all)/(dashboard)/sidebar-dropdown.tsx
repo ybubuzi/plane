@@ -105,7 +105,7 @@ export const AdminSidebarDropdown = observer(function AdminSidebarDropdown() {
           <div className="grid size-8 shrink-0 place-items-center rounded-md bg-layer-1" aria-hidden="true">
             <UserCogOutline className="size-5 text-primary" />
           </div>
-          <h4 className="min-w-0 flex-1 truncate text-body-md-medium text-primary">Instance admin</h4>
+          <h4 className="min-w-0 flex-1 truncate text-body-md-medium text-primary">实例管理员</h4>
           {currentUser && (
             <Menu>
               <MenuTrigger

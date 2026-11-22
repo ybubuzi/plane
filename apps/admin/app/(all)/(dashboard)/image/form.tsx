@@ -44,7 +44,7 @@ export function InstanceImageConfigForm(props: IInstanceImageConfigForm) {
       reset(formData);
       setToast({
         type: "success",
-        title: "Success",
+        title: "成功",
         message: "Image Configuration Settings updated successfully",
       });
     } catch (err) {
@@ -59,7 +59,7 @@ export function InstanceImageConfigForm(props: IInstanceImageConfigForm) {
           control={control}
           type="password"
           name="UNSPLASH_ACCESS_KEY"
-          label="Access key from your Unsplash account"
+          label="来自您 Unsplash 账户的 Access key"
           description={
             <>
               You will find your access key in your Unsplash developer console.&nbsp;
@@ -88,7 +88,7 @@ export function InstanceImageConfigForm(props: IInstanceImageConfigForm) {
           onClick={handleSubmit(onSubmit)}
           loading={isSubmitting}
           disabled={!isDirty}
-          label={isSubmitting ? "Saving" : "Save changes"}
+          label={isSubmitting ? "保存中" : "保存更改"}
         />
       </div>
     </div>

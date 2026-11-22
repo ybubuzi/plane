@@ -68,7 +68,7 @@ export function ControllerInput<TFieldValues extends FieldValues = FieldValues>(
               <IconButton
                 variant="ghost"
                 size="sm"
-                aria-label={showPassword ? "Hide password" : "Show password"}
+                aria-label={showPassword ? "隐藏密码" : "显示密码"}
                 aria-pressed={showPassword}
                 icon={<Icon icon={showPassword ? HideOutline : ShowOutline} />}
                 onClick={() => setShowPassword((visible) => !visible)}

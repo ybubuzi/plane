@@ -78,12 +78,12 @@ export const DeletePageModal = observer(function DeletePageModal(props: TConfirm
       handleSubmit={handleDelete}
       isSubmitting={isDeleting}
       isOpen={isOpen}
-      title="Delete page"
+      title="删除页面"
       content={
         <>
-          Are you sure you want to delete page-{" "}
-          <span className="font-medium break-words break-all text-primary">{getPageName(name)}</span> ? The Page will be
-          deleted permanently. This action cannot be undone.
+          确定要删除页面{" "}
+          <span className="font-medium break-words break-all text-primary">{getPageName(name)}</span>
+          {" 吗？该页面将被永久删除，此操作无法撤销。"}
         </>
       }
     />

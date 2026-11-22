@@ -142,7 +142,7 @@ export const LinkCreateUpdateModal = observer(function LinkCreateUpdateModal(pro
             </DialogBody>
           </DialogMain>
           <DialogActions>
-            <Button variant="secondary" size="md" stretch="auto" onClick={onClose} label={t("Cancel")} />
+            <Button variant="secondary" size="md" stretch="auto" onClick={onClose} label={t("取消")} />
             <Button
               variant="primary"
               size="md"

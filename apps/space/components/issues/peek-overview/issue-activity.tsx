@@ -68,7 +68,7 @@ export const PeekOverviewIssueActivity = observer(function PeekOverviewIssueActi
                 stretch="auto"
                 nativeButton={false}
                 render={<Link to={`/?next_path=${pathname}`} />}
-                label="Sign in"
+                label="登录"
               />
             </div>
           ))}

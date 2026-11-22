@@ -21,9 +21,9 @@ const authContentMap = {
     linkHref: "/sign-up",
   },
   [EAuthModes.SIGN_UP]: {
-    pageTitle: "Sign in",
+    pageTitle: "登录",
     text: "auth.common.already_have_an_account",
-    linkText: "Sign in",
+    linkText: "登录",
     linkHref: "/sign-in",
   },
 };

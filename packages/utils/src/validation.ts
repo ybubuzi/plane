@@ -71,19 +71,19 @@ export const SLUG_REGEX = /^[\p{L}\p{N}_-]+$/u;
  */
 export const validatePersonName = (name: string): boolean | string => {
   if (!name || name.trim() === "") {
-    return "Name is required";
+    return "姓名为必填项";
   }
 
   if (name.length > 50) {
-    return "Name must be 50 characters or less";
+    return "姓名不能超过 50 个字符";
   }
 
   if (hasInjectionRiskChars(name)) {
-    return "Names cannot contain special characters like < > ' \" { } [ ] * ^ ! # %";
+    return "姓名不能包含 < > ' \" { } [ ] * ^ ! # % 等特殊字符";
   }
 
   if (!PERSON_NAME_REGEX.test(name)) {
-    return "Names can only contain letters, spaces, hyphens, and apostrophes";
+    return "姓名只能包含字母、空格、连字符和撇号";
   }
 
   return true;
@@ -123,15 +123,15 @@ export const validateDisplayName = (displayName: string): boolean | string => {
   }
 
   if (displayName.length > 50) {
-    return "Display name must be 50 characters or less";
+    return "显示名称不能超过 50 个字符";
   }
 
   if (hasInjectionRiskChars(displayName)) {
-    return "Display name cannot contain special characters like < > ' \" { } [ ] * ^ ! # %";
+    return "显示名称不能包含 < > ' \" { } [ ] * ^ ! # % 等特殊字符";
   }
 
   if (!DISPLAY_NAME_REGEX.test(displayName)) {
-    return "Display name can only contain letters, numbers, periods, hyphens, and underscores";
+    return "显示名称只能包含字母、数字、句点、连字符和下划线";
   }
 
   return true;
@@ -149,23 +149,23 @@ export const validateDisplayName = (displayName: string): boolean | string => {
  */
 export const validateCompanyName = (companyName: string, required: boolean = false): boolean | string => {
   if (!companyName || companyName.trim() === "") {
-    return required ? "Company name is required" : true;
+    return required ? "公司名称为必填项" : true;
   }
 
   if (companyName.length > 80) {
-    return "Company name must be 80 characters or less";
+    return "公司名称不能超过 80 个字符";
   }
 
   if (hasInjectionRiskChars(companyName)) {
-    return "Company name cannot contain special characters like < > ' \" { } [ ] * ^ ! # %";
+    return "公司名称不能包含 < > ' \" { } [ ] * ^ ! # % 等特殊字符";
   }
 
   if (!COMPANY_NAME_REGEX.test(companyName)) {
-    return "Company name can only contain letters, numbers, spaces, hyphens, and underscores";
+    return "公司名称只能包含字母、数字、空格、连字符和下划线";
   }
 
   if (!HAS_ALPHANUMERIC_REGEX.test(companyName)) {
-    return "Company name must contain at least one letter or number";
+    return "公司名称必须至少包含一个字母或数字";
   }
 
   return true;
@@ -183,23 +183,23 @@ export const validateCompanyName = (companyName: string, required: boolean = fal
  */
 export const validateWorkspaceName = (workspaceName: string, required: boolean = false): boolean | string => {
   if (!workspaceName || workspaceName.trim() === "") {
-    return required ? "Workspace name is required" : true;
+    return required ? "工作区名称为必填项" : true;
   }
 
   if (workspaceName.length > 80) {
-    return "Workspace name must be 80 characters or less";
+    return "工作区名称不能超过 80 个字符";
   }
 
   if (hasInjectionRiskChars(workspaceName)) {
-    return "Workspace name cannot contain special characters like < > ' \" { } [ ] * ^ ! # %";
+    return "工作区名称不能包含 < > ' \" { } [ ] * ^ ! # % 等特殊字符";
   }
 
   if (!COMPANY_NAME_REGEX.test(workspaceName)) {
-    return "Workspace name can only contain letters, numbers, spaces, hyphens, and underscores";
+    return "工作区名称只能包含字母、数字、空格、连字符和下划线";
   }
 
   if (!HAS_ALPHANUMERIC_REGEX.test(workspaceName)) {
-    return "Workspace name must contain at least one letter or number";
+    return "工作区名称必须至少包含一个字母或数字";
   }
 
   return true;

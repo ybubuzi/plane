@@ -30,7 +30,7 @@ export function ControllerSwitch<T extends FieldValues>(props: Props<T>) {
   return (
     <div className="flex items-center justify-between gap-4 py-1">
       <span id={labelId} className="min-w-0 text-body-sm-medium text-primary">
-        Refresh user attributes from {label} during sign in
+        登录时从 {label} 刷新用户属性
       </span>
       <div className="shrink-0">
         <Controller

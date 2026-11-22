@@ -47,7 +47,7 @@ export function IssueLink(props: TIssueLink) {
       >
         {activity.issue_detail
           ? `${activity.project_detail.identifier}-${activity.issue_detail.sequence_id}`
-          : "Work items"}{" "}
+          : "工作项"}{" "}
         <span className="font-regular">{activity.issue_detail?.name}</span>
       </a>
     </Tooltip>

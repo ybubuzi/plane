@@ -48,7 +48,7 @@ export function InstanceGitlabConfigForm(props: Props) {
     {
       key: "GITLAB_HOST",
       type: "text",
-      label: "Host",
+      label: "主机",
       description: (
         <>
           This is either https://gitlab.com or the <CodeBlock>domain.tld</CodeBlock> where you host GitLab.

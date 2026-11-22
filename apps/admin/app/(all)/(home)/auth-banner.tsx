@@ -22,7 +22,7 @@ export function AuthBanner(props: TAuthBanner) {
       placement="inline"
       variant="info"
       description={<>{bannerData.message}</>}
-      dismissLabel="Dismiss banner"
+      dismissLabel="关闭横幅"
       onDismiss={() => handleBannerData && handleBannerData(undefined)}
     />
   );

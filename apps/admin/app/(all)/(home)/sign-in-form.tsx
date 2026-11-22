@@ -108,8 +108,8 @@ export function InstanceSignInForm() {
       <div className="mt-10 flex w-full flex-grow flex-col items-center justify-center py-6">
         <div className="relative flex w-full max-w-[22.5rem] flex-col gap-6">
           <FormHeader
-            heading="Manage your Plane instance"
-            subHeading="Configure instance-wide settings to secure your instance"
+            heading="管理您的 Plane 实例"
+            subHeading="配置实例级设置以保护您的实例"
           />
           <form
             className="space-y-4"
@@ -137,7 +137,7 @@ export function InstanceSignInForm() {
               // oxlint-disable-next-line jsx-a11y/no-autofocus -- sole primary field of a dedicated sign-in page
               autoFocus
               orientation="vertical"
-              label="Email"
+              label="邮箱"
               required
             />
 
@@ -146,19 +146,19 @@ export function InstanceSignInForm() {
               id="password"
               name="password"
               type={showPassword ? "text" : "password"}
-              placeholder="Enter your password"
+              placeholder="请输入密码"
               value={formData.password}
               onChange={(e) => handleFormChange("password", e.target.value)}
               autoComplete="off"
               orientation="vertical"
-              label="Password"
+              label="密码"
               required
               endIcon={
                 <IconButton
                   type="button"
                   variant="ghost"
                   size="sm"
-                  aria-label={showPassword ? "Hide password" : "Show password"}
+                  aria-label={showPassword ? "隐藏密码" : "显示密码"}
                   aria-pressed={showPassword}
                   icon={<Icon icon={showPassword ? HideOutline : ShowOutline} />}
                   onClick={() => setShowPassword((visible) => !visible)}
@@ -173,7 +173,7 @@ export function InstanceSignInForm() {
                 stretch="full"
                 disabled={isButtonDisabled}
                 loading={isSubmitting}
-                label="Sign in"
+                label="登录"
               />
             </div>
           </form>

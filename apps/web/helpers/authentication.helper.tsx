@@ -139,7 +139,7 @@ const errorCodeMessages: {
     message: () => `Password login disabled. Please contact your administrator.`,
   },
   [EAuthenticationErrorCodes.USER_ACCOUNT_DEACTIVATED]: {
-    title: `User account deactivated`,
+    title: `账号已停用`,
     message: () => `User account deactivated. Please contact ${SUPPORT_EMAIL ? SUPPORT_EMAIL : "administrator"}.`,
   },
   [EAuthenticationErrorCodes.BOT_USER_LOGIN_FORBIDDEN]: {
@@ -169,19 +169,19 @@ const errorCodeMessages: {
           className="font-medium underline underline-offset-4 transition-all hover:font-bold"
           href={`/sign-in${email ? `?email=${encodeURIComponent(email)}` : ``}`}
         >
-          Sign In
+          立即登录
         </Link>
         &nbsp;now.
       </div>
     ),
   },
   [EAuthenticationErrorCodes.REQUIRED_EMAIL_PASSWORD_SIGN_UP]: {
-    title: `Email and password required`,
-    message: () => `Email and password required. Please try again.`,
+    title: `需要邮箱和密码`,
+    message: () => `需要邮箱和密码，请重试。`,
   },
   [EAuthenticationErrorCodes.AUTHENTICATION_FAILED_SIGN_UP]: {
-    title: `Authentication failed`,
-    message: () => `Authentication failed. Please try again.`,
+    title: `认证失败`,
+    message: () => `认证失败，请重试。`,
   },
   [EAuthenticationErrorCodes.INVALID_EMAIL_SIGN_UP]: {
     title: `Invalid email`,
@@ -212,12 +212,12 @@ const errorCodeMessages: {
     ),
   },
   [EAuthenticationErrorCodes.REQUIRED_EMAIL_PASSWORD_SIGN_IN]: {
-    title: `Email and password required`,
-    message: () => `Email and password required. Please try again.`,
+    title: `需要邮箱和密码`,
+    message: () => `需要邮箱和密码，请重试。`,
   },
   [EAuthenticationErrorCodes.AUTHENTICATION_FAILED_SIGN_IN]: {
-    title: `Authentication failed`,
-    message: () => `Authentication failed. Please try again.`,
+    title: `认证失败`,
+    message: () => `认证失败，请重试。`,
   },
   [EAuthenticationErrorCodes.INVALID_EMAIL_SIGN_IN]: {
     title: `Invalid email`,
@@ -234,11 +234,11 @@ const errorCodeMessages: {
 
   // Both Sign in and Sign up
   [EAuthenticationErrorCodes.INVALID_MAGIC_CODE_SIGN_IN]: {
-    title: `Authentication failed`,
+    title: `认证失败`,
     message: () => `Invalid magic code. Please try again.`,
   },
   [EAuthenticationErrorCodes.INVALID_MAGIC_CODE_SIGN_UP]: {
-    title: `Authentication failed`,
+    title: `认证失败`,
     message: () => `Invalid magic code. Please try again.`,
   },
   [EAuthenticationErrorCodes.EXPIRED_MAGIC_CODE_SIGN_IN]: {
@@ -320,48 +320,48 @@ const errorCodeMessages: {
 
   // admin
   [EAuthenticationErrorCodes.ADMIN_ALREADY_EXIST]: {
-    title: `Admin already exists`,
-    message: () => `Admin already exists. Please try again.`,
+    title: `管理员已存在`,
+    message: () => `管理员已存在，请重试。`,
   },
   [EAuthenticationErrorCodes.REQUIRED_ADMIN_EMAIL_PASSWORD_FIRST_NAME]: {
-    title: `Email, password and first name required`,
-    message: () => `Email, password and first name required. Please try again.`,
+    title: `需要邮箱、密码和用户名`,
+    message: () => `需要邮箱、密码和用户名，请重试。`,
   },
   [EAuthenticationErrorCodes.INVALID_ADMIN_EMAIL]: {
-    title: `Invalid admin email`,
-    message: () => `Invalid admin email. Please try again.`,
+    title: `管理员邮箱无效`,
+    message: () => `管理员邮箱无效，请重试。`,
   },
   [EAuthenticationErrorCodes.INVALID_ADMIN_PASSWORD]: {
-    title: `Invalid admin password`,
-    message: () => `Invalid admin password. Please try again.`,
+    title: `管理员密码无效`,
+    message: () => `管理员密码无效，请重试。`,
   },
   [EAuthenticationErrorCodes.REQUIRED_ADMIN_EMAIL_PASSWORD]: {
-    title: `Email and password required`,
-    message: () => `Email and password required. Please try again.`,
+    title: `需要邮箱和密码`,
+    message: () => `需要邮箱和密码，请重试。`,
   },
   [EAuthenticationErrorCodes.ADMIN_AUTHENTICATION_FAILED]: {
-    title: `Authentication failed`,
-    message: () => `Authentication failed. Please try again.`,
+    title: `认证失败`,
+    message: () => `认证失败，请重试。`,
   },
   [EAuthenticationErrorCodes.ADMIN_USER_ALREADY_EXIST]: {
-    title: `Admin user already exists`,
+    title: `管理员用户已存在`,
     message: () => (
       <div>
         Admin user already exists.&nbsp;
         <Link className="font-medium underline underline-offset-4 transition-all hover:font-bold" href={`/admin`}>
-          Sign In
+          立即登录
         </Link>
         &nbsp;now.
       </div>
     ),
   },
   [EAuthenticationErrorCodes.ADMIN_USER_DOES_NOT_EXIST]: {
-    title: `Admin user does not exist`,
+    title: `管理员用户不存在`,
     message: () => (
       <div>
         Admin user does not exist.&nbsp;
         <Link className="font-medium underline underline-offset-4 transition-all hover:font-bold" href={`/admin`}>
-          Sign In
+          立即登录
         </Link>
         &nbsp;now.
       </div>
@@ -437,8 +437,8 @@ export const authErrorHandler = (errorCode: EAuthenticationErrorCodes, email?: s
     return {
       type: EErrorAlertType.BANNER_ALERT,
       code: errorCode,
-      title: errorCodeMessages[errorCode]?.title || "Error",
-      message: errorCodeMessages[errorCode]?.message(email) || "Something went wrong. Please try again.",
+      title: errorCodeMessages[errorCode]?.title || "错误",
+      message: errorCodeMessages[errorCode]?.message(email) || "出了点问题，请重试。",
     };
 
   return undefined;

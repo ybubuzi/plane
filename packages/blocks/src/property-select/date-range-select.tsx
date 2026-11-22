@@ -6,6 +6,7 @@
 
 import { useState } from "react";
 import { format } from "date-fns";
+import { zhCN } from "date-fns/locale";
 import { Calendar } from "@makeplane/propel/components/calendar";
 import type { DateSelectCommonProps } from "./date-select-shell";
 import { DateSelectShell } from "./date-select-shell";
@@ -29,8 +30,8 @@ export type DateRangeSelectProps = DateSelectCommonProps & {
   /**
    * Collapses the trigger label to the shared parts of the two dates — "Jun 10 - 24, 2025" for a
    * range inside one month, "Jan 24 - Feb 02, 2025" inside one year — instead of repeating the
-   * whole date twice. Honoured for the four `formatToken` values Plane ships (`MMM dd, yyyy`,
-   * `dd/MM/yyyy`, `MM/dd/yyyy`, `yyyy/MM/dd` — see `MERGE_TOKENS`); any other token keeps the whole
+   * whole date twice. Honoured for the four `formatToken` values Plane ships (`yyyy年M月d日`,
+   * `yyyy/MM/dd`, `MM/dd/yyyy`, `yyyy/MM/dd` — see `MERGE_TOKENS`); any other token keeps the whole
    * label on both ends. Ignored when {@link formatLabel} is given. @default false
    */
   mergeDates?: boolean;
@@ -51,18 +52,19 @@ type MergeTokenPair = { from: string; to: string };
  *
  * | `formatToken`  | same year, other month  | same month            |
  * | -------------- | ----------------------- | --------------------- |
- * | `MMM dd, yyyy` | `Jan 24 - Feb 02, 2025` | `Jun 10 - 24, 2025`   |
- * | `dd/MM/yyyy`   | `24/01 - 02/02/2025`    | `10 - 24/06/2025`     |
+ * | `yyyy年M月d日` | `Jan 24 - Feb 02, 2025` | `Jun 10 - 24, 2025`   |
+ * | `yyyy/MM/dd`   | `24/01 - 02/02/2025`    | `10 - 24/06/2025`     |
  * | `MM/dd/yyyy`   | `01/24 - 02/02/2025`    | `06/10 - 24/2025`     |
  * | `yyyy/MM/dd`   | `2025/01/24 - 02/02`    | `2025/06/10 - 24`     |
  *
  * Hand-written per token rather than derived by trimming segments off the caller's own token:
  * a regex that strips `y+` or `M+` with its separator leaves dangling and doubled slashes in every
- * token but the first ("dd/MM/yyyy" became "10/06/ - 24//2025"). An unlisted token keeps the whole
+ * token but the first ("yyyy/MM/dd" became "10/06/ - 24//2025"). An unlisted token keeps the whole
  * label on both ends.
  */
 const MERGE_TOKENS: Record<string, { sameYear: MergeTokenPair; sameMonth: MergeTokenPair }> = {
-  "MMM dd, yyyy": { sameYear: { from: "MMM dd", to: "MMM dd, yyyy" }, sameMonth: { from: "MMM dd", to: "dd, yyyy" } },
+  "yyyy年M月d日": { sameYear: { from: "M月d日", to: "yyyy年M月d日" }, sameMonth: { from: "M月d日", to: "d日" } },
+  "MMM dd, yyyy": { sameYear: { from: "M月d日", to: "yyyy年M月d日" }, sameMonth: { from: "M月d日", to: "d日" } },
   "dd/MM/yyyy": { sameYear: { from: "dd/MM", to: "dd/MM/yyyy" }, sameMonth: { from: "dd", to: "dd/MM/yyyy" } },
   "MM/dd/yyyy": { sameYear: { from: "MM/dd", to: "MM/dd/yyyy" }, sameMonth: { from: "MM/dd", to: "dd/yyyy" } },
   "yyyy/MM/dd": { sameYear: { from: "yyyy/MM/dd", to: "MM/dd" }, sameMonth: { from: "yyyy/MM/dd", to: "dd" } },
@@ -80,7 +82,7 @@ function mergeRangeLabel(range: DateRangeValue, from: string, to: string, format
   const tokens = MERGE_TOKENS[formatToken];
   if (!tokens) return joined;
   const pair = range.from.getMonth() === range.to.getMonth() ? tokens.sameMonth : tokens.sameYear;
-  return `${format(range.from, pair.from)} - ${format(range.to, pair.to)}`;
+  return `${format(range.from, pair.from, { locale: zhCN })} - ${format(range.to, pair.to, { locale: zhCN })}`;
 }
 
 /**
@@ -110,8 +112,8 @@ export function DateRangeSelect(props: DateRangeSelectProps) {
   // sees a range it did not ask for.
   const [draft, setDraft] = useState<DateRangeValue | null>(null);
   // derived values
-  const from = value.from ? format(value.from, formatToken) : "";
-  const to = value.to ? format(value.to, formatToken) : "";
+  const from = value.from ? format(value.from, formatToken, { locale: zhCN }) : "";
+  const to = value.to ? format(value.to, formatToken, { locale: zhCN }) : "";
   const joined = from && to ? `${from} - ${to}` : from || to;
   const formatted = props.formatLabel
     ? props.formatLabel(value, { from, to })

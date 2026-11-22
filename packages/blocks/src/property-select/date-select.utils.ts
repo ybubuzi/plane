@@ -5,7 +5,7 @@
  */
 
 /** The default trigger label format — a short, unambiguous day. Overridden by `formatToken`. */
-export const DEFAULT_DATE_FORMAT_TOKEN = "MMM dd, yyyy";
+export const DEFAULT_DATE_FORMAT_TOKEN = "yyyy年M月d日";
 
 /**
  * Turns a `minDate` / `maxDate` pair into propel `Calendar` day matchers. Both bounds are

@@ -8,6 +8,10 @@ import type { TLanguage, ILanguageOption } from "../types";
 
 export const FALLBACK_LANGUAGE: TLanguage = "en";
 
+// 本地化定制：实例默认语言改为简体中文（新用户/未手动选择语言时生效）。
+// FALLBACK_LANGUAGE 仍保留 en，作为缺失词条的回退语言。
+export const DEFAULT_LANGUAGE: TLanguage = "zh-CN";
+
 export const SUPPORTED_LANGUAGES: ILanguageOption[] = [
   { label: "English", value: "en" },
   { label: "Français", value: "fr" },

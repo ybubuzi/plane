@@ -40,7 +40,7 @@ export const useAttachmentOperations = (
   const attachmentOperations: TAttachmentOperations = useMemo(
     () => ({
       create: async (file) => {
-        if (!workspaceSlug || !projectId || !issueId) throw new Error("Missing required fields");
+        if (!workspaceSlug || !projectId || !issueId) throw new Error("缺少必填字段");
         const attachmentUploadPromise = createAttachment(workspaceSlug, projectId, issueId, file);
         setPromiseToast(attachmentUploadPromise, {
           loading: "Uploading attachment...",
@@ -58,7 +58,7 @@ export const useAttachmentOperations = (
       },
       remove: async (attachmentId) => {
         try {
-          if (!workspaceSlug || !projectId || !issueId) throw new Error("Missing required fields");
+          if (!workspaceSlug || !projectId || !issueId) throw new Error("缺少必填字段");
           await removeAttachment(workspaceSlug, projectId, issueId, attachmentId);
           setToast({
             message: "The attachment has been successfully removed",

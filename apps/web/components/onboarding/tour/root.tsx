@@ -38,42 +38,42 @@ const TOUR_STEPS: {
 }[] = [
   {
     key: "work-items",
-    title: "Plan with work items",
+    title: "用工作项做计划",
     description:
-      "The work item is the building block of the Plane. Most concepts in Plane are either associated with work items and their properties.",
+      "工作项是 Plane 的基本构成单元。Plane 中的大多数概念都与工作项及其属性相关联。",
     image: IssuesTour,
     nextStep: "cycles",
   },
   {
     key: "cycles",
-    title: "Move with cycles",
+    title: "用迭代推进工作",
     description:
-      "Cycles help you and your team to progress faster, similar to the sprints commonly used in agile development.",
+      "迭代（Cycle）帮助您和团队更快推进工作，类似于敏捷开发中常用的冲刺（Sprint）。",
     image: CyclesTour,
     prevStep: "work-items",
     nextStep: "modules",
   },
   {
     key: "modules",
-    title: "Break into modules",
-    description: "Modules break your big thing into Projects or Features, to help you organize better.",
+    title: "用模块拆分",
+    description: "模块将大任务拆分为项目或功能，帮助您更好地组织工作。",
     image: ModulesTour,
     prevStep: "cycles",
     nextStep: "views",
   },
   {
     key: "views",
-    title: "Views",
+    title: "视图",
     description:
-      "Create custom filters to display only the work items that matter to you. Save and share your filters in just a few clicks.",
+      "创建自定义筛选，只显示您关心的工作项。几次点击即可保存并分享您的筛选。",
     image: ViewsTour,
     prevStep: "modules",
     nextStep: "pages",
   },
   {
     key: "pages",
-    title: "Document with pages",
-    description: "Use Pages to quickly jot down work items when you're in a meeting or starting a day.",
+    title: "用页面记录文档",
+    description: "开会或开始一天工作时，用页面快速记录工作项。",
     image: PagesTour,
     prevStep: "views",
   },
@@ -100,11 +100,10 @@ export const TourRoot = observer(function TourRoot(props: TOnboardingTourProps) 
             </div>
             <div className="flex flex-col overflow-y-auto p-6">
               <h3 className="font-semibold sm:text-h5-regular">
-                Welcome to Plane, {currentUser?.first_name} {currentUser?.last_name}
+                欢迎使用 Plane，{currentUser?.first_name} {currentUser?.last_name}
               </h3>
               <p className="mt-3 text-body-xs-regular text-secondary">
-                We{"'"}re glad that you decided to try out Plane. You can now manage your projects with ease. Get
-                started by creating a project.
+                我们很高兴您选择试用 Plane。您现在可以轻松管理项目了。从创建一个项目开始吧。
               </p>
               <div className="flex h-full items-end">
                 <div className="mt-12 flex items-center gap-6">
@@ -112,7 +111,7 @@ export const TourRoot = observer(function TourRoot(props: TOnboardingTourProps) 
                     variant="primary"
                     size="sm"
                     stretch="auto"
-                    label="Take a Product Tour"
+                    label="参加产品导览"
                     onClick={() => {
                       setStep("work-items");
                     }}
@@ -124,7 +123,7 @@ export const TourRoot = observer(function TourRoot(props: TOnboardingTourProps) 
                       onComplete();
                     }}
                   >
-                    No thanks, I will explore it myself
+                    不用了，我自己探索
                   </button>
                 </div>
               </div>
@@ -159,7 +158,7 @@ export const TourRoot = observer(function TourRoot(props: TOnboardingTourProps) 
                       variant="secondary"
                       size="sm"
                       stretch="auto"
-                      label="Back"
+                      label="返回"
                       onClick={() => setStep(currentStep.prevStep ?? "welcome")}
                     />
                   )}
@@ -168,7 +167,7 @@ export const TourRoot = observer(function TourRoot(props: TOnboardingTourProps) 
                       variant="primary"
                       size="sm"
                       stretch="auto"
-                      label="Next"
+                      label="下一步"
                       onClick={() => setStep(currentStep.nextStep ?? "work-items")}
                     />
                   )}
@@ -178,7 +177,7 @@ export const TourRoot = observer(function TourRoot(props: TOnboardingTourProps) 
                     variant="primary"
                     size="sm"
                     stretch="auto"
-                    label="Create your first project"
+                    label="创建您的第一个项目"
                     onClick={() => {
                       onComplete();
                       toggleCreateProjectModal(true);

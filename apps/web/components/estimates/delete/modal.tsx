@@ -83,16 +83,15 @@ export const DeleteEstimateModal = observer(function DeleteEstimateModal(props: 
           {/* heading */}
           <DialogHeader>
             <DialogHeading>
-              <DialogTitle>Delete Estimate System</DialogTitle>
+              <DialogTitle>删除估算系统</DialogTitle>
             </DialogHeading>
           </DialogHeader>
 
           {/* estimate steps */}
           <DialogBody tabIndex={0}>
             <div className="text-body-sm-regular text-secondary">
-              Deleting the estimate <span className="font-bold text-primary">{estimate?.name}</span>
-              &nbsp;system will remove it from all work items permanently. This action cannot be undone. If you add
-              estimates again, you will need to update all the work items.
+              删除估算系统 <span className="font-bold text-primary">{estimate?.name}</span>
+              {" 将从所有工作项中永久移除该估算，此操作无法撤销。如果再次添加估算，您需要重新更新所有工作项。"}
             </div>
           </DialogBody>
         </DialogMain>
@@ -104,7 +103,7 @@ export const DeleteEstimateModal = observer(function DeleteEstimateModal(props: 
             onClick={handleClose}
             disabled={buttonLoader}
             stretch="auto"
-            label="Cancel"
+            label="取消"
           />
           <Button
             variant="danger"
@@ -112,7 +111,7 @@ export const DeleteEstimateModal = observer(function DeleteEstimateModal(props: 
             onClick={handleDeleteEstimate}
             disabled={buttonLoader}
             stretch="auto"
-            label={buttonLoader ? "Deleting" : "Delete Estimate"}
+            label={buttonLoader ? "删除中" : "删除估算"}
           />
         </DialogActions>
       </DialogContent>

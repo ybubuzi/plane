@@ -6,6 +6,7 @@
 
 import { useCallback } from "react";
 import { format } from "date-fns";
+import { zhCN } from "date-fns/locale";
 import { useProject } from "@/hooks/store/use-project";
 import { useUser } from "@/hooks/store/user";
 
@@ -22,13 +23,13 @@ export const useTimeZoneConverter = (projectId: string) => {
    * @returns The formatted date
    */
   const renderFormattedDateInUserTimezone = useCallback(
-    (date: string, formatToken: string = "MMM dd, yyyy") => {
+    (date: string, formatToken: string = "yyyy年M月d日") => {
       // return if undefined
       if (!date || !userTimezone) return;
       // convert the date to the user's timezone
       const convertedDate = new Date(date).toLocaleString("en-US", { timeZone: userTimezone });
       // return the formatted date
-      return format(convertedDate, formatToken);
+      return format(convertedDate, formatToken, { locale: zhCN });
     },
     [userTimezone]
   );

@@ -119,7 +119,7 @@ export function InstanceGiteaConfigForm(props: Props) {
             rel="noreferrer"
             aria-label="Gitea OAuth application settings"
           >
-            here.
+            此处获取。
           </a>
         </>
       ),

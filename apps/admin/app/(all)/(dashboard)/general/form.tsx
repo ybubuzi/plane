@@ -50,8 +50,8 @@ export const GeneralConfigurationForm = observer(function GeneralConfigurationFo
       reset(formData);
       setToast({
         type: "success",
-        title: "Success",
-        message: "Settings updated successfully",
+        title: "成功",
+        message: "设置已成功更新",
       });
     } catch (err) {
       console.error(err);
@@ -61,15 +61,15 @@ export const GeneralConfigurationForm = observer(function GeneralConfigurationFo
   return (
     <div className="space-y-8">
       <div className="space-y-4">
-        <div className="text-body-md-medium text-primary">Instance details</div>
+        <div className="text-body-md-medium text-primary">实例详情</div>
         <div className="grid-col grid w-full grid-cols-1 items-center justify-between gap-8 md:grid-cols-2 lg:grid-cols-3">
           <ControllerInput
             key="instance_name"
             name="instance_name"
             control={control}
             type="text"
-            label="Name of instance"
-            placeholder="Instance name"
+            label="实例名称"
+            placeholder="实例名称"
             error={Boolean(errors.instance_name)}
             required
           />
@@ -80,9 +80,9 @@ export const GeneralConfigurationForm = observer(function GeneralConfigurationFo
             type="email"
             size="lg"
             orientation="vertical"
-            label="Email"
+            label="邮箱"
             value={instanceAdmins[0]?.user_detail?.email ?? ""}
-            placeholder="Admin email"
+            placeholder="管理员邮箱"
             autoComplete="on"
             disabled
           />
@@ -93,7 +93,7 @@ export const GeneralConfigurationForm = observer(function GeneralConfigurationFo
             type="text"
             size="lg"
             orientation="vertical"
-            label="Instance ID"
+            label="实例 ID"
             value={instance.instance_id}
             disabled
           />
@@ -101,7 +101,7 @@ export const GeneralConfigurationForm = observer(function GeneralConfigurationFo
       </div>
 
       <div className="space-y-6">
-        <div className="border-b border-subtle pb-1.5 text-body-md-medium text-primary">Telemetry</div>
+        <div className="border-b border-subtle pb-1.5 text-body-md-medium text-primary">遥测</div>
         <div className="flex items-center gap-14">
           <div className="flex grow items-center gap-4">
             <div className="shrink-0">
@@ -110,17 +110,16 @@ export const GeneralConfigurationForm = observer(function GeneralConfigurationFo
               </div>
             </div>
             <div className="grow">
-              <div className="text-body-sm-medium leading-5 text-primary">Let Plane collect anonymous usage data</div>
+              <div className="text-body-sm-medium leading-5 text-primary">允许 Plane 收集匿名使用数据</div>
               <div className="text-body-xs-regular leading-5 text-tertiary">
-                No PII is collected.This anonymized data is used to understand how you use Plane and build new features
-                in line with{" "}
+                不收集任何个人身份信息（PII）。这些匿名数据用于了解您如何使用 Plane，并据此构建新功能，详见{" "}
                 <a
                   href="https://developers.plane.so/self-hosting/telemetry"
                   target="_blank"
                   className="text-accent-primary hover:underline"
                   rel="noreferrer"
                 >
-                  our Telemetry Policy.
+                  我们的遥测政策。
                 </a>
               </div>
             </div>
@@ -131,7 +130,7 @@ export const GeneralConfigurationForm = observer(function GeneralConfigurationFo
               name="is_telemetry_enabled"
               render={({ field: { value, onChange } }) => (
                 <Switch
-                  aria-label="Let Plane collect anonymous usage data"
+                  aria-label="允许 Plane 收集匿名使用数据"
                   checked={value ?? false}
                   onCheckedChange={onChange}
                   size="sm"
@@ -153,7 +152,7 @@ export const GeneralConfigurationForm = observer(function GeneralConfigurationFo
           }}
           loading={isSubmitting}
           disabled={!isDirty}
-          label={isSubmitting ? "Saving" : "Save changes"}
+          label={isSubmitting ? "保存中" : "保存更改"}
         />
       </div>
     </div>

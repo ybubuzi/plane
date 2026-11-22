@@ -23,38 +23,38 @@ class StateGroup(models.TextChoices):
 # Default states
 DEFAULT_STATES = [
     {
-        "name": "Backlog",
+        "name": "待梳理",
         "color": "#60646C",
         "sequence": 15000,
         "group": StateGroup.BACKLOG.value,
         "default": True,
     },
     {
-        "name": "Todo",
+        "name": "待办",
         "color": "#60646C",
         "sequence": 25000,
         "group": StateGroup.UNSTARTED.value,
     },
     {
-        "name": "In Progress",
+        "name": "进行中",
         "color": "#F59E0B",
         "sequence": 35000,
         "group": StateGroup.STARTED.value,
     },
     {
-        "name": "Done",
+        "name": "已完成",
         "color": "#46A758",
         "sequence": 45000,
         "group": StateGroup.COMPLETED.value,
     },
     {
-        "name": "Cancelled",
+        "name": "已取消",
         "color": "#9AA4BC",
         "sequence": 55000,
         "group": StateGroup.CANCELLED.value,
     },
     {
-        "name": "Triage",
+        "name": "待分类",
         "color": "#4E5355",
         "sequence": 65000,
         "group": StateGroup.TRIAGE.value,

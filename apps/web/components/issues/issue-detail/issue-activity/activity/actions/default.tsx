@@ -42,7 +42,7 @@ export const IssueDefaultActivity = observer(function IssueDefaultActivity(props
               <span className="font-medium">{capitalizeFirstLetter(source.toLowerCase() || "")}</span>.
             </span>
           ) : (
-            <span> created the work item.</span>
+            <span> 创建了此工作项。</span>
           )
         ) : (
           <span> deleted a work item.</span>

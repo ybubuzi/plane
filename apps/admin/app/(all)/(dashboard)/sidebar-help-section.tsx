@@ -64,14 +64,14 @@ export const AdminSidebarHelpSection = observer(function AdminSidebarHelpSection
       })}
     >
       {isSidebarCollapsed ? (
-        <Tooltip label="Redirect to Plane" side="right">
+        <Tooltip label="跳转到 Plane" side="right">
           <IconButton
             variant="secondary"
             size="md"
-            aria-label="Redirect to Plane"
+            aria-label="跳转到 Plane"
             showTooltip={false}
             nativeButton={false}
-            render={<a href={redirectionLink} aria-label="Redirect to Plane" />}
+            render={<a href={redirectionLink} aria-label="跳转到 Plane" />}
             icon={<Icon icon={NewTabOutline} />}
           />
         </Tooltip>
@@ -81,21 +81,21 @@ export const AdminSidebarHelpSection = observer(function AdminSidebarHelpSection
           size="sm"
           stretch="auto"
           nativeButton={false}
-          render={<a href={redirectionLink} aria-label="Redirect to Plane" />}
+          render={<a href={redirectionLink} aria-label="跳转到 Plane" />}
           icon={<Icon icon={NewTabOutline} />}
-          label="Redirect to Plane"
+          label="跳转到 Plane"
         />
       )}
       <div className={cn("flex items-center gap-1", isSidebarCollapsed ? "flex-col" : "ml-auto")}>
         <Menu modal={false}>
-          <Tooltip label="Help" side={isSidebarCollapsed ? "right" : "top"}>
+          <Tooltip label="帮助" side={isSidebarCollapsed ? "right" : "top"}>
             <MenuTrigger
               render={
                 <IconButton
                   type="button"
                   variant="ghost"
                   size="md"
-                  aria-label="Help"
+                  aria-label="帮助"
                   showTooltip={false}
                   icon={<Icon icon={HelpOutline} />}
                 />

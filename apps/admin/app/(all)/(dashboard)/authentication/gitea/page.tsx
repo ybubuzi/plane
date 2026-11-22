@@ -48,7 +48,7 @@ const InstanceGiteaAuthenticationPage = observer(function InstanceGiteaAuthentic
         message: () => `Gitea authentication is now ${value === "1" ? "active" : "disabled"}.`,
       },
       error: {
-        title: "Error",
+        title: "错误",
         message: () => "Failed to save configuration",
       },
     });

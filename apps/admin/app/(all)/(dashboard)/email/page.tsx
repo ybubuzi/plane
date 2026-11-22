@@ -61,13 +61,13 @@ const InstanceEmailPage = observer(function InstanceEmailPage(_props: Route.Comp
   return (
     <PageWrapper
       header={{
-        title: "Secure emails from your own instance",
+        title: "使用您自己的实例安全地发送邮件",
         description: (
           <>
-            Plane can send useful emails to you and your users from your own instance without talking to the Internet.
+            Plane 可以从您自己的实例向您和用户发送实用邮件，无需经过互联网。
             <div className="text-body-xs-regular text-tertiary">
               Set it up below and please test your settings before you save them.&nbsp;
-              <span className="text-danger-primary">Misconfigs can lead to email bounces and errors.</span>
+              <span className="text-danger-primary">配置错误可能导致邮件退回和错误。</span>
             </div>
           </>
         ),
@@ -105,6 +105,6 @@ const InstanceEmailPage = observer(function InstanceEmailPage(_props: Route.Comp
   );
 });
 
-export const meta: Route.MetaFunction = () => [{ title: "Email Settings - God Mode" }];
+export const meta: Route.MetaFunction = () => [{ title: "邮箱设置 - 管理后台" }];
 
 export default InstanceEmailPage;

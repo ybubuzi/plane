@@ -30,7 +30,7 @@ export const IssueAttachmentActivity = observer(function IssueAttachmentActivity
       ends={ends}
     >
       <>
-        {activity.verb === "created" ? `uploaded a new attachment` : `removed an attachment`}
+        {activity.verb === "created" ? `上传了新附件` : `移除了附件`}
         {showIssue && (activity.verb === "created" ? ` to ` : ` from `)}
         {showIssue && <IssueLink activityId={activityId} />}.
       </>

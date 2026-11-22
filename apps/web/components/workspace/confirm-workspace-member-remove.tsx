@@ -78,12 +78,11 @@ export const ConfirmWorkspaceMemberRemove = observer(function ConfirmWorkspaceMe
       handleClose={handleClose}
       handleSubmit={handleDeletion}
       isSubmitting={isRemoving}
-      title={`Remove ${userDetails?.display_name}?`}
+      title={`移除 ${userDetails?.display_name}？`}
       content={
         <>
-          {/* TODO: Add translation here */}
-          Are you sure you want to remove member- <span className="font-bold">{userDetails?.display_name}</span>? They
-          will no longer have access to this workspace. This action cannot be undone.
+          确定要移除成员 <span className="font-bold">{userDetails?.display_name}</span>
+          {" 吗？该成员将不再拥有此工作区的访问权限，此操作无法撤销。"}
         </>
       }
       primaryButtonText={{ loading: t("removing"), default: t("remove") }}

@@ -117,12 +117,11 @@ export const DeleteIssueModal = observer(function DeleteIssueModal(props: Props)
       title={t("entity.delete.label", { entity: isEpic ? t("common.epic") : t("common.work_item") })}
       content={
         <>
-          {/* TODO: Translate here */}
-          {`Are you sure you want to delete ${isEpic ? "epic" : "work item"} `}
+          {`确定要删除${isEpic ? "史诗" : "工作项"} `}
           <span className="font-medium break-words text-primary">
             {projectDetails?.identifier}-{issue?.sequence_id}
           </span>
-          {` ? All of the data related to the ${isEpic ? "epic" : "work item"} will be permanently removed. This action cannot be undone.`}
+          {` 吗？该${isEpic ? "史诗" : "工作项"}的所有相关数据将被永久移除，此操作无法撤销。`}
         </>
       }
     />

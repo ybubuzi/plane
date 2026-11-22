@@ -6,6 +6,7 @@
 
 import { useState } from "react";
 import { format } from "date-fns";
+import { zhCN } from "date-fns/locale";
 import { Calendar } from "@makeplane/propel/components/calendar";
 import type { DateSelectCommonProps } from "./date-select-shell";
 import { DateSelectShell } from "./date-select-shell";
@@ -39,7 +40,7 @@ export function DateSelect(props: DateSelectProps) {
   // states
   const [isOpen, setIsOpen] = useState(props.defaultOpen ?? false);
   // derived values
-  const formatted = value ? format(value, formatToken) : "";
+  const formatted = value ? format(value, formatToken, { locale: zhCN }) : "";
   const disabledMatchers = buildDisabledMatchers(minDate, maxDate);
 
   const handleOpenChange = (open: boolean) => {

@@ -50,7 +50,7 @@ const InstanceGitlabAuthenticationPage = observer(function InstanceGitlabAuthent
         message: () => `GitLab authentication is now ${value === "1" ? "active" : "disabled"}.`,
       },
       error: {
-        title: "Error",
+        title: "错误",
         message: () => "Failed to save configuration",
       },
     });

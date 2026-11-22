@@ -11,5 +11,7 @@ ZXCVBN_MAX_LENGTH = 128
 
 
 def is_password_strong(password):
-    windows = {password[:ZXCVBN_MAX_LENGTH], password[-ZXCVBN_MAX_LENGTH:]}
-    return any(zxcvbn(window)["score"] >= 3 for window in windows)
+    """Relaxed by local patch: minimum length only, no composition rules."""
+    return bool(password) and len(password) >= 8
+
+

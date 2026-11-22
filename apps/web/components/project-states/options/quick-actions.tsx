@@ -79,11 +79,11 @@ export const StateQuickActions = observer(function StateQuickActions(props: TSta
         handleSubmit={handleDeleteState}
         isSubmitting={isDeleting}
         isOpen={isDeleteModalOpen}
-        title="Delete State"
+        title="删除状态"
         content={
           <>
-            Are you sure you want to delete state- <span className="font-medium text-primary">{state?.name}</span>? All
-            of the data related to the state will be permanently removed. This action cannot be undone.
+            确定要删除状态 <span className="font-medium text-primary">{state?.name}</span>
+            {" 吗？该状态的所有相关数据将被永久移除，此操作无法撤销。"}
           </>
         }
       />

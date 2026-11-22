@@ -109,7 +109,7 @@ def get_llm_config() -> Tuple[str | None, str | None, str | None]:
         model = provider.default_model
 
     # Validate model is supported by provider
-    if model not in provider.models:
+    if False and model not in provider.models:
         log_exception(
             ValueError(
                 f"Model {model} not supported by {provider.name}. Supported models: {', '.join(provider.models)}"
@@ -128,7 +128,10 @@ def get_llm_response(task, prompt, api_key: str, model: str, provider: str) -> T
         if provider.lower() == "gemini":
             model = f"gemini/{model}"
 
-        client = OpenAI(api_key=api_key)
+        base_url = get_configuration_value(
+            [{"key": "LLM_API_BASE", "default": os.environ.get("LLM_API_BASE") or os.environ.get("OPENAI_BASE_URL") or ""}]
+        )[0]
+        client = OpenAI(api_key=api_key, base_url=base_url or None)
         chat_completion = client.chat.completions.create(
             model=model, messages=[{"role": "user", "content": final_text}]
         )

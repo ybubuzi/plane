@@ -60,11 +60,11 @@ const WorkspaceManagementPage = observer(function WorkspaceManagementPage(_props
     setPromiseToast(updateConfigPromise, {
       loading: "Saving configuration",
       success: {
-        title: "Success",
+        title: "成功",
         message: () => "Configuration saved successfully",
       },
       error: {
-        title: "Error",
+        title: "错误",
         message: () => "Failed to save configuration",
       },
     });
@@ -82,8 +82,8 @@ const WorkspaceManagementPage = observer(function WorkspaceManagementPage(_props
   return (
     <PageWrapper
       header={{
-        title: "Workspaces on this instance",
-        description: "See all workspaces and control who can create them.",
+        title: "此实例上的工作区",
+        description: "查看所有工作区并控制谁可以创建工作区。",
       }}
     >
       <div className="space-y-3">
@@ -144,7 +144,7 @@ const WorkspaceManagementPage = observer(function WorkspaceManagementPage(_props
                   stretch="auto"
                   nativeButton={false}
                   render={<Link href="/workspace/create" />}
-                  label="Create workspace"
+                  label="创建工作区"
                 />
               </div>
             </div>
@@ -168,7 +168,7 @@ const WorkspaceManagementPage = observer(function WorkspaceManagementPage(_props
                   stretch="auto"
                   onClick={() => fetchNextWorkspaces()}
                   loading={workspaceLoader === "pagination"}
-                  label="Load more"
+                  label="加载更多"
                 />
               </div>
             )}
@@ -186,6 +186,6 @@ const WorkspaceManagementPage = observer(function WorkspaceManagementPage(_props
   );
 });
 
-export const meta: Route.MetaFunction = () => [{ title: "Workspace Management - God Mode" }];
+export const meta: Route.MetaFunction = () => [{ title: "工作区管理 - 管理后台" }];
 
 export default WorkspaceManagementPage;

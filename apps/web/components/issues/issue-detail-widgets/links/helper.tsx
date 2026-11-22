@@ -28,7 +28,7 @@ export const useLinkOperations = (
     () => ({
       create: async (data: Partial<TIssueLink>) => {
         try {
-          if (!workspaceSlug || !projectId || !issueId) throw new Error("Missing required fields");
+          if (!workspaceSlug || !projectId || !issueId) throw new Error("缺少必填字段");
           await createLink(workspaceSlug, projectId, issueId, data);
           setToast({
             message: t("links.toasts.created.message"),
@@ -46,7 +46,7 @@ export const useLinkOperations = (
       },
       update: async (linkId: string, data: Partial<TIssueLink>) => {
         try {
-          if (!workspaceSlug || !projectId || !issueId) throw new Error("Missing required fields");
+          if (!workspaceSlug || !projectId || !issueId) throw new Error("缺少必填字段");
           await updateLink(workspaceSlug, projectId, issueId, linkId, data);
           setToast({
             message: t("links.toasts.updated.message"),
@@ -64,7 +64,7 @@ export const useLinkOperations = (
       },
       remove: async (linkId: string) => {
         try {
-          if (!workspaceSlug || !projectId || !issueId) throw new Error("Missing required fields");
+          if (!workspaceSlug || !projectId || !issueId) throw new Error("缺少必填字段");
           await removeLink(workspaceSlug, projectId, issueId, linkId);
           setToast({
             message: t("links.toasts.removed.message"),

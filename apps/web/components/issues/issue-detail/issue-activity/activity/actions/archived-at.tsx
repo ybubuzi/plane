@@ -38,7 +38,7 @@ export const IssueArchivedAtActivity = observer(function IssueArchivedAtActivity
       ends={ends}
       customUserName={activity.new_value === "archive" ? "Plane" : undefined}
     >
-      {activity.new_value === "restore" ? "restored the work item" : "archived the work item"}.
+      {activity.new_value === "restore" ? "恢复了此工作项" : "归档了此工作项"}.
     </IssueActivityBlockComponent>
   );
 });

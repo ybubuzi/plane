@@ -45,7 +45,7 @@ type Props = {
   showUpdatedMeta?: boolean;
 };
 
-const AUDIT_DATE_FORMAT = "MMM d, yyyy h:mma";
+const AUDIT_DATE_FORMAT = "yyyy年M月d日 HH:mm";
 
 const formatAuditDate = (date: string | null | undefined) =>
   date ? renderFormattedDate(new Date(date), AUDIT_DATE_FORMAT) : undefined;

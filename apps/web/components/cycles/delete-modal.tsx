@@ -82,12 +82,12 @@ export const CycleDeleteModal = observer(function CycleDeleteModal(props: ICycle
       handleSubmit={formSubmit}
       isSubmitting={loader}
       isOpen={isOpen}
-      title="Delete cycle"
+      title="删除迭代"
       content={
         <>
-          Are you sure you want to delete cycle{' "'}
+          确定要删除迭代{" “"}
           <span className="font-medium break-words text-primary">{cycle?.name}</span>
-          {'"'}? All of the data related to the cycle will be permanently removed. This action cannot be undone.
+          {"”吗？该迭代的所有相关数据将被永久移除，此操作无法撤销。"}
         </>
       }
     />

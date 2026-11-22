@@ -58,7 +58,7 @@ export function InstanceGoogleConfigForm(props: Props) {
             rel="noreferrer"
             aria-label="Google OAuth client ID documentation"
           >
-            Learn more
+            了解更多
           </a>
         </>
       ),
@@ -80,7 +80,7 @@ export function InstanceGoogleConfigForm(props: Props) {
             rel="noreferrer"
             aria-label="Google OAuth client secret documentation"
           >
-            Learn more
+            了解更多
           </a>
         </>
       ),
@@ -106,7 +106,7 @@ export function InstanceGoogleConfigForm(props: Props) {
             rel="noreferrer"
             aria-label="Google Cloud Console OAuth client credentials"
           >
-            here.
+            此处获取。
           </a>
         </p>
       ),
@@ -129,7 +129,7 @@ export function InstanceGoogleConfigForm(props: Props) {
             rel="noreferrer"
             aria-label="Google Cloud Console OAuth client credentials"
           >
-            here.
+            此处获取。
           </a>
         </p>
       ),

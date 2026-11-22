@@ -17,27 +17,27 @@ const sidebarOptions: {
 }[] = [
   {
     key: "work-items",
-    label: "Work items",
+    label: "工作项",
     Icon: WorkItemsOutline,
   },
   {
     key: "cycles",
-    label: "Cycles",
+    label: "迭代",
     Icon: CyclesOutline,
   },
   {
     key: "modules",
-    label: "Modules",
+    label: "模块",
     Icon: ModuleOutline,
   },
   {
     key: "views",
-    label: "Views",
+    label: "视图",
     Icon: ViewsOutline,
   },
   {
     key: "pages",
-    label: "Pages",
+    label: "页面",
     Icon: PagesOutline,
   },
 ];
@@ -51,9 +51,9 @@ export function TourSidebar({ step, setStep }: Props) {
   return (
     <div className="col-span-3 hidden bg-surface-2 p-8 lg:block">
       <h3 className="text-h6-medium">
-        Let{"'"}s get started!
+        开始使用吧！
         <br />
-        Get more out of Plane.
+        充分发挥 Plane 的价值。
       </h3>
       <div className="mt-8 space-y-5">
         {sidebarOptions.map((option) => (

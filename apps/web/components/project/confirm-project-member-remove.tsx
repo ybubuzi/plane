@@ -77,7 +77,7 @@ export const ConfirmProjectMemberRemove = observer(function ConfirmProjectMember
               </div>
               <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
                 <DialogHeading>
-                  <DialogTitle>{isCurrentUser ? "Leave project?" : `Remove ${data?.display_name}?`}</DialogTitle>
+                  <DialogTitle>{isCurrentUser ? "离开项目？" : `移除 ${data?.display_name}？`}</DialogTitle>
                 </DialogHeading>
               </div>
             </div>
@@ -86,26 +86,26 @@ export const ConfirmProjectMemberRemove = observer(function ConfirmProjectMember
             <p className="text-body-xs-regular text-secondary">
               {isCurrentUser ? (
                 <>
-                  Are you sure you want to leave the <span className="font-bold">{currentProjectDetails?.name}</span>{" "}
-                  project? You will be able to join the project if invited again or if it{"'"}s public.
+                  确定要离开项目 <span className="font-bold">{currentProjectDetails?.name}</span>
+                  {" 吗？如果再次受到邀请或该项目为公开项目，您可以重新加入。"}
                 </>
               ) : (
                 <>
-                  Are you sure you want to remove member- <span className="font-bold">{data?.display_name}</span>? They
-                  will no longer have access to this project. This action cannot be undone.
+                  确定要移除成员 <span className="font-bold">{data?.display_name}</span>
+                  {" 吗？该成员将不再拥有此项目的访问权限，此操作无法撤销。"}
                 </>
               )}
             </p>
           </DialogBody>
         </DialogMain>
         <DialogActions>
-          <Button variant="secondary" size="md" stretch="auto" label="Cancel" onClick={handleClose} />
+          <Button variant="secondary" size="md" stretch="auto" label="取消" onClick={handleClose} />
           <Button
             variant="danger"
             size="md"
             stretch="auto"
             label={
-              isCurrentUser ? (isDeleteLoading ? "Leaving..." : "Leave") : isDeleteLoading ? "Removing..." : "Remove"
+              isCurrentUser ? (isDeleteLoading ? "离开中..." : "离开") : isDeleteLoading ? "移除中..." : "移除"
             }
             onClick={handleDeletion}
             loading={isDeleteLoading}

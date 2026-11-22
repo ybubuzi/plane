@@ -27,10 +27,9 @@ export const NewUserPopup = observer(function NewUserPopup() {
     <div className="shadow-md absolute right-8 bottom-8 w-96 rounded-lg border border-subtle bg-surface-1 p-6">
       <div className="flex gap-4">
         <div className="grow">
-          <div className="text-body-sm-semibold">Create workspace</div>
+          <div className="text-body-sm-semibold">创建工作区</div>
           <div className="py-2 text-body-xs-medium text-tertiary">
-            Instance setup done! Welcome to Plane instance portal. Start your journey with by creating your first
-            workspace.
+            实例设置完成！欢迎来到 Plane 实例管理门户。从创建您的第一个工作区开始吧。
           </div>
           <div className="flex items-center gap-4 pt-2">
             <Button
@@ -39,9 +38,9 @@ export const NewUserPopup = observer(function NewUserPopup() {
               stretch="auto"
               nativeButton={false}
               render={<Link href="/workspace/create" />}
-              label="Create workspace"
+              label="创建工作区"
             />
-            <Button variant="secondary" size="md" stretch="auto" onClick={toggleNewUserPopup} label="Close" />
+            <Button variant="secondary" size="md" stretch="auto" onClick={toggleNewUserPopup} label="关闭" />
           </div>
         </div>
         <div className="flex shrink-0 items-center justify-center">

@@ -61,7 +61,7 @@ export function SendTestEmailModal(props: Props) {
         return;
       })
       .catch((err) => {
-        setError(err?.error || "Failed to send email");
+        setError(err?.error || "邮件发送失败");
         setSendEmailStep(ESendEmailSteps.FAILED);
       })
       .finally(() => {
@@ -87,10 +87,10 @@ export function SendTestEmailModal(props: Props) {
             <DialogHeading>
               <DialogTitle>
                 {sendEmailStep === ESendEmailSteps.SEND_EMAIL
-                  ? "Send test email"
+                  ? "发送测试邮件"
                   : sendEmailStep === ESendEmailSteps.SUCCESS
-                    ? "Email send"
-                    : "Failed"}
+                    ? "邮件已发送"
+                    : "发送失败"}
               </DialogTitle>
             </DialogHeading>
           </DialogHeader>
@@ -101,10 +101,10 @@ export function SendTestEmailModal(props: Props) {
                 type="email"
                 size="lg"
                 orientation="vertical"
-                label="Receiver email"
+                label="收件人邮箱"
                 value={receiverEmail}
                 onChange={(e) => setReceiverEmail(e.target.value)}
-                placeholder="Receiver email"
+                placeholder="收件人邮箱"
                 autoComplete="email"
                 tabIndex={0}
               />
@@ -127,7 +127,7 @@ export function SendTestEmailModal(props: Props) {
             stretch="auto"
             onClick={handleClose}
             tabIndex={0}
-            label={sendEmailStep === ESendEmailSteps.SEND_EMAIL ? "Cancel" : "Close"}
+            label={sendEmailStep === ESendEmailSteps.SEND_EMAIL ? "取消" : "关闭"}
           />
           {sendEmailStep === ESendEmailSteps.SEND_EMAIL && (
             <Button
@@ -137,7 +137,7 @@ export function SendTestEmailModal(props: Props) {
               loading={isLoading}
               onClick={handleSubmit}
               tabIndex={0}
-              label={isLoading ? "Sending email" : "Send email"}
+              label={isLoading ? "正在发送" : "发送邮件"}
             />
           )}
         </DialogActions>

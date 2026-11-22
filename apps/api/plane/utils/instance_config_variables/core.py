@@ -232,6 +232,12 @@ llm_config_variables = [
         "category": "AI",
         "is_encrypted": False,
     },
+    {
+        "key": "LLM_API_BASE",
+        "value": os.environ.get("LLM_API_BASE", ""),
+        "category": "AI",
+        "is_encrypted": False,
+    },
     # Deprecated, use LLM_MODEL
     {
         "key": "GPT_ENGINE",

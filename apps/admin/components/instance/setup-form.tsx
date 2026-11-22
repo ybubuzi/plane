@@ -17,7 +17,7 @@ import { Icon } from "@makeplane/propel/components/icon";
 import { IconButton } from "@makeplane/propel/components/icon-button";
 import { PasswordStrengthIndicator } from "@plane/blocks/auth";
 import { Banner } from "@makeplane/propel/components/banner";
-import { getPasswordStrength, validatePersonName, validateCompanyName } from "@plane/utils";
+import { getPasswordStrength, validateCompanyName } from "@plane/utils";
 // components
 import { AuthHeader } from "@/app/(all)/(home)/auth-header";
 import { FormHeader } from "./form-header";
@@ -141,8 +141,8 @@ export function InstanceSetupForm() {
       <div className="mt-10 flex w-full flex-grow flex-col items-center justify-center py-6">
         <div className="relative flex w-full max-w-[22.5rem] flex-col gap-6">
           <FormHeader
-            heading="Setup your Plane Instance"
-            subHeading="Post setup you will be able to manage this Plane instance."
+            heading="设置您的 Plane 实例"
+            subHeading="完成设置后，您就可以管理此 Plane 实例。"
           />
           {errorData.type &&
             errorData?.message &&
@@ -166,44 +166,20 @@ export function InstanceSetupForm() {
                   id="first_name"
                   name="first_name"
                   type="text"
-                  placeholder="Wilber"
+                  placeholder="请输入用户名"
                   value={formData.first_name}
-                  onChange={(e) => {
-                    const validation = validatePersonName(e.target.value);
-                    if (validation === true || e.target.value === "") {
-                      handleFormChange("first_name", e.target.value);
-                    }
-                  }}
+                  onChange={(e) => handleFormChange("first_name", e.target.value)}
                   autoComplete="off"
                   // oxlint-disable-next-line jsx-a11y/no-autofocus -- first field of the one-time instance setup page
                   autoFocus
                   maxLength={50}
                   orientation="vertical"
-                  label="First name"
+                  label="用户名"
                   required
                 />
               </div>
-              <div className="w-full">
-                <InputField
-                  size="xl"
-                  id="last_name"
-                  name="last_name"
-                  type="text"
-                  placeholder="Wright"
-                  value={formData.last_name}
-                  onChange={(e) => {
-                    const validation = validatePersonName(e.target.value);
-                    if (validation === true || e.target.value === "") {
-                      handleFormChange("last_name", e.target.value);
-                    }
-                  }}
-                  autoComplete="off"
-                  maxLength={50}
-                  orientation="vertical"
-                  label="Last name"
-                  required
-                />
-              </div>
+              {/* 本地化定制：合并名字/姓氏为单一用户名，last_name 以隐藏空值提交 */}
+              <input type="hidden" name="last_name" value={formData.last_name} />
             </div>
 
             <InputField
@@ -217,7 +193,7 @@ export function InstanceSetupForm() {
               aria-invalid={errorData.type === EErrorCodes.INVALID_EMAIL}
               autoComplete="off"
               orientation="vertical"
-              label="Email"
+              label="邮箱"
               required
               error={errorData.type === EErrorCodes.INVALID_EMAIL && errorData.message ? errorData.message : undefined}
             />
@@ -227,7 +203,7 @@ export function InstanceSetupForm() {
               id="company_name"
               name="company_name"
               type="text"
-              placeholder="Company name"
+              placeholder="公司名称"
               value={formData.company_name}
               onChange={(e) => {
                 const validation = validateCompanyName(e.target.value, false);
@@ -237,7 +213,7 @@ export function InstanceSetupForm() {
               }}
               maxLength={80}
               orientation="vertical"
-              label="Company name"
+              label="公司名称"
               required
             />
 
@@ -247,7 +223,7 @@ export function InstanceSetupForm() {
                 id="password"
                 name="password"
                 type={showPassword.password ? "text" : "password"}
-                placeholder="New password"
+                placeholder="新密码"
                 value={formData.password}
                 onChange={(e) => handleFormChange("password", e.target.value)}
                 aria-invalid={errorData.type === EErrorCodes.INVALID_PASSWORD}
@@ -255,7 +231,7 @@ export function InstanceSetupForm() {
                 onBlur={() => setIsPasswordInputFocused(false)}
                 autoComplete="new-password"
                 orientation="vertical"
-                label="Set a password"
+                label="设置密码"
                 required
                 error={
                   errorData.type === EErrorCodes.INVALID_PASSWORD && errorData.message ? errorData.message : undefined
@@ -265,7 +241,7 @@ export function InstanceSetupForm() {
                     type="button"
                     variant="ghost"
                     size="sm"
-                    aria-label={showPassword.password ? "Hide password" : "Show password"}
+                    aria-label={showPassword.password ? "隐藏密码" : "显示密码"}
                     aria-pressed={showPassword.password}
                     icon={<Icon icon={showPassword.password ? HideOutline : ShowOutline} />}
                     onClick={() => handleShowPassword("password")}
@@ -283,19 +259,19 @@ export function InstanceSetupForm() {
                 name="confirm_password"
                 value={formData.confirm_password}
                 onChange={(e) => handleFormChange("confirm_password", e.target.value)}
-                placeholder="Confirm password"
+                placeholder="确认密码"
                 onFocus={() => setIsRetryPasswordInputFocused(true)}
                 onBlur={() => setIsRetryPasswordInputFocused(false)}
                 autoComplete="new-password"
                 orientation="vertical"
-                label="Confirm password"
+                label="确认密码"
                 required
                 endIcon={
                   <IconButton
                     type="button"
                     variant="ghost"
                     size="sm"
-                    aria-label={showPassword.retypePassword ? "Hide password" : "Show password"}
+                    aria-label={showPassword.retypePassword ? "隐藏密码" : "显示密码"}
                     aria-pressed={showPassword.retypePassword}
                     icon={<Icon icon={showPassword.retypePassword ? HideOutline : ShowOutline} />}
                     onClick={() => handleShowPassword("retypePassword")}
@@ -305,7 +281,7 @@ export function InstanceSetupForm() {
               {!!formData.confirm_password &&
                 formData.password !== formData.confirm_password &&
                 renderPasswordMatchError && (
-                  <span className="text-body-xs-regular text-danger-primary">Passwords don{"'"}t match</span>
+                  <span className="text-body-xs-regular text-danger-primary">两次输入的密码不一致</span>
                 )}
             </div>
 
@@ -313,20 +289,20 @@ export function InstanceSetupForm() {
               <div>
                 <Checkbox
                   id="is_telemetry_enabled"
-                  aria-label="Allow Plane to anonymously collect usage events"
+                  aria-label="允许 Plane 匿名收集使用事件"
                   onCheckedChange={(checked) => handleFormChange("is_telemetry_enabled", checked)}
                   checked={formData.is_telemetry_enabled}
                 />
               </div>
               <label className="cursor-pointer text-body-xs-medium text-tertiary" htmlFor="is_telemetry_enabled">
-                Allow Plane to anonymously collect usage events.{" "}
+                允许 Plane 匿名收集使用事件。{" "}
                 <a
                   href="https://developers.plane.so/self-hosting/telemetry"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="shrink-0 text-body-xs-medium text-accent-primary hover:underline"
                 >
-                  See More
+                  了解更多
                 </a>
               </label>
             </div>
@@ -339,7 +315,7 @@ export function InstanceSetupForm() {
                 stretch="full"
                 disabled={isButtonDisabled}
                 loading={isSubmitting}
-                label="Continue"
+                label="继续"
               />
             </div>
           </form>

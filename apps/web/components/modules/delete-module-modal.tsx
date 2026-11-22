@@ -77,12 +77,12 @@ export const DeleteModuleModal = observer(function DeleteModuleModal(props: Prop
       handleSubmit={handleDeletion}
       isSubmitting={isDeleteLoading}
       isOpen={isOpen}
-      title="Delete module"
+      title="删除模块"
       content={
         <>
-          Are you sure you want to delete module-{" "}
-          <span className="font-medium break-all text-primary">{data?.name}</span>? All of the data related to the
-          module will be permanently removed. This action cannot be undone.
+          确定要删除模块{" "}
+          <span className="font-medium break-all text-primary">{data?.name}</span>
+          {" 吗？该模块的所有相关数据将被永久移除，此操作无法撤销。"}
         </>
       }
     />

@@ -49,7 +49,7 @@ export function IssueLinkRoot(props: TIssueLinkRoot) {
     () => ({
       create: async (data: Partial<TIssueLink>) => {
         try {
-          if (!workspaceSlug || !projectId || !issueId) throw new Error("Missing required fields");
+          if (!workspaceSlug || !projectId || !issueId) throw new Error("缺少必填字段");
           await createLink(workspaceSlug, projectId, issueId, data);
           setToast({
             message: "The link has been successfully created",
@@ -68,7 +68,7 @@ export function IssueLinkRoot(props: TIssueLinkRoot) {
       },
       update: async (linkId: string, data: Partial<TIssueLink>) => {
         try {
-          if (!workspaceSlug || !projectId || !issueId) throw new Error("Missing required fields");
+          if (!workspaceSlug || !projectId || !issueId) throw new Error("缺少必填字段");
           await updateLink(workspaceSlug, projectId, issueId, linkId, data);
           setToast({
             message: "The link has been successfully updated",
@@ -87,7 +87,7 @@ export function IssueLinkRoot(props: TIssueLinkRoot) {
       },
       remove: async (linkId: string) => {
         try {
-          if (!workspaceSlug || !projectId || !issueId) throw new Error("Missing required fields");
+          if (!workspaceSlug || !projectId || !issueId) throw new Error("缺少必填字段");
           await removeLink(workspaceSlug, projectId, issueId, linkId);
           setToast({
             message: "The link has been successfully removed",

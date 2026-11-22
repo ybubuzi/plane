@@ -5,7 +5,14 @@
  */
 
 import { differenceInDays, format, formatDistanceToNow, isAfter, isEqual, isValid, parseISO } from "date-fns";
+import { zhCN } from "date-fns/locale";
 import { isNumber } from "lodash-es";
+
+// 本地化定制：日期显示统一使用中文 locale 与中文格式（yyyy年M月d日 / M月d日）。
+// payload/ISO 等用于提交的格式保持 yyyy-MM-dd 不变。
+const DATE_LOCALE = zhCN;
+const DEFAULT_DATE_FORMAT = "yyyy年M月d日";
+const SHORT_DATE_FORMAT = "M月d日";
 
 // Format Date Helpers
 /**
@@ -18,7 +25,7 @@ import { isNumber } from "lodash-es";
  */
 export const renderFormattedDate = (
   date: string | Date | undefined | null,
-  formatToken: string = "MMM dd, yyyy"
+  formatToken: string = DEFAULT_DATE_FORMAT
 ): string | undefined => {
   // Parse the date to check if it is valid
   const parsedDate = getDate(date);
@@ -28,11 +35,11 @@ export const renderFormattedDate = (
   if (!isValid(parsedDate)) return; // Return null for invalid dates
   let formattedDate;
   try {
-    // Format the date in the format provided or default format (MMM dd, yyyy)
-    formattedDate = format(parsedDate, formatToken);
+    // Format the date in the format provided or default Chinese format
+    formattedDate = format(parsedDate, formatToken, { locale: DATE_LOCALE });
   } catch (_e) {
-    // Format the date in format (MMM dd, yyyy) in case of any error
-    formattedDate = format(parsedDate, "MMM dd, yyyy");
+    // Format the date in default Chinese format in case of any error
+    formattedDate = format(parsedDate, DEFAULT_DATE_FORMAT, { locale: DATE_LOCALE });
   }
   return formattedDate;
 };
@@ -50,8 +57,8 @@ export const renderFormattedDateWithoutYear = (date: string | Date): string => {
   if (!parsedDate) return "";
   // Check if the parsed date is valid before formatting
   if (!isValid(parsedDate)) return ""; // Return empty string for invalid dates
-  // Format the date in short format (MMM dd)
-  const formattedDate = format(parsedDate, "MMM dd");
+  // Format the date in short Chinese format (M月d日)
+  const formattedDate = format(parsedDate, SHORT_DATE_FORMAT, { locale: DATE_LOCALE });
   return formattedDate;
 };
 
@@ -91,11 +98,11 @@ export const renderFormattedTime = (date: string | Date, timeFormat: "12-hour" |
   if (!isValid(parsedDate)) return ""; // Return empty string for invalid dates
   // Format the date in 12 hour format if in12HourFormat is true
   if (timeFormat === "12-hour") {
-    const formattedTime = format(parsedDate, "hh:mm a");
+    const formattedTime = format(parsedDate, "hh:mm a", { locale: DATE_LOCALE });
     return formattedTime;
   }
   // Format the date in 24 hour format
-  const formattedTime = format(parsedDate, "HH:mm");
+  const formattedTime = format(parsedDate, "HH:mm", { locale: DATE_LOCALE });
   return formattedTime;
 };
 
@@ -175,7 +182,7 @@ export const calculateTimeAgo = (time: string | number | Date | null): string =>
   // return if undefined
   if (!parsedTime) return ""; // Return empty string for invalid dates
   // Format the time in the form of amount of time passed since the event happened
-  const distance = formatDistanceToNow(parsedTime, { addSuffix: true });
+  const distance = formatDistanceToNow(parsedTime, { addSuffix: true, locale: DATE_LOCALE });
   return distance;
 };
 
@@ -500,12 +507,12 @@ export const formatDateRange = (
 
   // If only start date is provided
   if (parsedStartDate && !parsedEndDate) {
-    return format(parsedStartDate, "MMM dd, yyyy");
+    return format(parsedStartDate, DEFAULT_DATE_FORMAT, { locale: DATE_LOCALE });
   }
 
   // If only end date is provided
   if (!parsedStartDate && parsedEndDate) {
-    return format(parsedEndDate, "MMM dd, yyyy");
+    return format(parsedEndDate, DEFAULT_DATE_FORMAT, { locale: DATE_LOCALE });
   }
 
   // If both dates are provided
@@ -517,21 +524,21 @@ export const formatDateRange = (
 
     // Same year, same month
     if (startYear === endYear && startMonth === endMonth) {
-      const startDay = format(parsedStartDate, "dd");
-      const endDay = format(parsedEndDate, "dd");
-      return `${format(parsedStartDate, "MMM")} ${startDay} - ${endDay}, ${startYear}`;
+      const startDay = format(parsedStartDate, "d", { locale: DATE_LOCALE });
+      const endDay = format(parsedEndDate, "d", { locale: DATE_LOCALE });
+      return `${format(parsedStartDate, "M月", { locale: DATE_LOCALE })}${startDay}日 - ${endDay}日, ${startYear}`;
     }
 
     // Same year, different month
     if (startYear === endYear) {
-      const startFormatted = format(parsedStartDate, "MMM dd");
-      const endFormatted = format(parsedEndDate, "MMM dd");
+      const startFormatted = format(parsedStartDate, SHORT_DATE_FORMAT, { locale: DATE_LOCALE });
+      const endFormatted = format(parsedEndDate, SHORT_DATE_FORMAT, { locale: DATE_LOCALE });
       return `${startFormatted} - ${endFormatted}, ${startYear}`;
     }
 
     // Different year
-    const startFormatted = format(parsedStartDate, "MMM dd, yyyy");
-    const endFormatted = format(parsedEndDate, "MMM dd, yyyy");
+    const startFormatted = format(parsedStartDate, DEFAULT_DATE_FORMAT, { locale: DATE_LOCALE });
+    const endFormatted = format(parsedEndDate, DEFAULT_DATE_FORMAT, { locale: DATE_LOCALE });
     return `${startFormatted} - ${endFormatted}`;
   }
 

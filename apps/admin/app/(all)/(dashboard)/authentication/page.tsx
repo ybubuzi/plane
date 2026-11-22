@@ -77,11 +77,11 @@ const InstanceAuthenticationPage = observer(function InstanceAuthenticationPage(
       setPromiseToast(updateConfigPromise, {
         loading: "Saving configuration",
         success: {
-          title: "Success",
+          title: "成功",
           message: () => "Configuration saved successfully",
         },
         error: {
-          title: "Error",
+          title: "错误",
           message: () => "Failed to save configuration",
         },
       });
@@ -114,8 +114,8 @@ const InstanceAuthenticationPage = observer(function InstanceAuthenticationPage(
   return (
     <PageWrapper
       header={{
-        title: "Manage authentication modes for your instance",
-        description: "Configure authentication modes for your team and restrict sign-ups to be invite only.",
+        title: "管理实例的身份验证方式",
+        description: "为团队配置身份验证方式，并可限制仅邀请注册。",
       }}
     >
       {formattedConfig ? (
@@ -124,17 +124,17 @@ const InstanceAuthenticationPage = observer(function InstanceAuthenticationPage(
             <div className="flex min-w-0 grow items-center gap-4">
               <div className="min-w-0 grow">
                 <div className="pb-1 text-body-sm-medium text-primary">
-                  Allow anyone to sign up even without an invite
+                  允许任何人注册（无需邀请）
                 </div>
                 <div className="text-body-xs-regular leading-5 text-tertiary">
-                  Toggling this off will only let users sign up when they are invited.
+                  关闭后，仅受邀用户才能注册。
                 </div>
               </div>
             </div>
             <div className={cn("shrink-0", { "opacity-70": isSubmitting })}>
               <div className="flex items-center gap-4">
                 <Switch
-                  aria-label="Allow anyone to sign up even without an invite"
+                  aria-label="允许任何人注册（无需邀请）"
                   checked={Boolean(parseInt(enableSignUpConfig))}
                   onCheckedChange={() => {
                     if (Boolean(parseInt(enableSignUpConfig)) === true) {
@@ -175,6 +175,6 @@ const InstanceAuthenticationPage = observer(function InstanceAuthenticationPage(
   );
 });
 
-export const meta: Route.MetaFunction = () => [{ title: "Authentication Settings - Plane Web" }];
+export const meta: Route.MetaFunction = () => [{ title: "身份验证设置 - 管理后台" }];
 
 export default InstanceAuthenticationPage;

@@ -40,7 +40,7 @@ export const WorkspaceHomeView = observer(function WorkspaceHomeView() {
     try {
       await updateTourCompleted();
     } catch (error) {
-      console.error("Error updating tour completed", error);
+      console.error("更新导览完成状态出错", error);
     }
   };
 

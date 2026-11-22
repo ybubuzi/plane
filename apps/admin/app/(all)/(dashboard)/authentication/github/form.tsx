@@ -113,7 +113,7 @@ export function InstanceGithubConfigForm(props: Props) {
             rel="noreferrer"
             aria-label="GitHub OAuth application settings"
           >
-            here.
+            此处获取。
           </a>
         </>
       ),
@@ -136,7 +136,7 @@ export function InstanceGithubConfigForm(props: Props) {
             rel="noreferrer"
             aria-label="GitHub OAuth application settings"
           >
-            here.
+            此处获取。
           </a>
         </>
       ),

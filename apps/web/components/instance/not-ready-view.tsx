@@ -36,11 +36,11 @@ export function InstanceNotReady() {
           </div>
           <div className="flex h-full w-full flex-col items-center justify-center gap-7">
             <div className="flex flex-col items-center gap-11">
-              <img src={GradientLogo} className="h-24 w-40 object-contain" alt="Plane Logo" />
+              <img src={GradientLogo} className="h-24 w-40 object-contain" alt="Plane 徽标" />
               <div className="flex max-w-124 flex-col items-center gap-3">
-                <h1 className="text-h2-semibold text-primary">Welcome to Plane</h1>
+                <h1 className="text-h2-semibold text-primary">欢迎使用 Plane</h1>
                 <p className="text-center text-body-md-regular text-secondary">
-                  Set up your instance and create your first workspace to begin managing projects and work.
+                  设置您的实例并创建第一个工作空间，开始管理项目与工作。
                 </p>
               </div>
             </div>
@@ -50,8 +50,8 @@ export function InstanceNotReady() {
                 size="lg"
                 stretch="full"
                 nativeButton={false}
-                render={<a href={GOD_MODE_URL}>Get started</a>}
-                label="Get started"
+                render={<a href={GOD_MODE_URL}>开始使用</a>}
+                label="开始使用"
               />
             </div>
           </div>

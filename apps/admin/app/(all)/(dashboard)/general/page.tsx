@@ -20,9 +20,9 @@ function GeneralPage() {
   return (
     <PageWrapper
       header={{
-        title: "General settings",
+        title: "常规设置",
         description:
-          "Change the name of your instance and instance admin e-mail addresses. Enable or disable telemetry in your instance.",
+          "更改实例名称和实例管理员邮箱地址，启用或禁用实例遥测。",
       }}
     >
       {instance && instanceAdmins && <GeneralConfigurationForm instance={instance} instanceAdmins={instanceAdmins} />}
@@ -30,6 +30,6 @@ function GeneralPage() {
   );
 }
 
-export const meta: Route.MetaFunction = () => [{ title: "General Settings - God Mode" }];
+export const meta: Route.MetaFunction = () => [{ title: "常规设置 - 管理后台" }];
 
 export default observer(GeneralPage);
