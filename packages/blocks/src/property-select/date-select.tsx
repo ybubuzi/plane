@@ -64,6 +64,7 @@ export function DateSelect(props: DateSelectProps) {
     >
       <Calendar
         mode="single"
+        locale={zhCN}
         selected={value ?? undefined}
         defaultMonth={value ?? defaultMonth}
         disabled={disabledMatchers}

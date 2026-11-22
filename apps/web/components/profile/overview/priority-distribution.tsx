@@ -11,7 +11,6 @@ import { EmptyStateCompact } from "@plane/blocks/empty-state";
 import type { IUserProfileData } from "@plane/types";
 import { Card } from "@plane/blocks/card";
 import { Loader } from "@plane/blocks/skeleton";
-import { capitalizeFirstLetter } from "@plane/utils";
 
 type Props = {
   userProfile: IUserProfileData | undefined;
@@ -37,14 +36,14 @@ export function ProfilePriorityDistribution({ userProfile }: Props) {
               className="h-[300px] w-full"
               margin={{ top: 20, right: 30, bottom: 5, left: 0 }}
               data={userProfile.priority_distribution.map((priority) => ({
-                key: priority.priority ?? "None",
-                name: capitalizeFirstLetter(priority.priority ?? "None"),
+                key: priority.priority ?? "none",
+                name: t(`common.${priority.priority ?? "none"}`),
                 count: priority.priority_count,
               }))}
               bars={[
                 {
                   key: "count",
-                  label: "Count",
+                  label: "数量",
                   stackId: "bar-one",
                   fill: (payload: any) => priorityColors[payload.key as keyof typeof priorityColors], // TODO: fix types
                   textClassName: "",

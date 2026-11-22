@@ -175,7 +175,7 @@ export const ProfileSidebar = observer(function ProfileSidebar(props: TProfileSi
                         trigger={<span className="truncate text-body-xs-medium">{projectDetails.name}</span>}
                         trailing={
                           project.assigned_issues > 0 ? (
-                            <Tooltip label="Completion percentage" side="left" disabled={isMobile}>
+                            <Tooltip label="完成百分比" side="left" disabled={isMobile}>
                               <Badge
                                 size="xs"
                                 variant={
@@ -215,7 +215,7 @@ export const ProfileSidebar = observer(function ProfileSidebar(props: TProfileSi
                             <div className="flex items-center justify-between gap-2">
                               <div className="flex items-center gap-2">
                                 <div className="h-2.5 w-2.5 rounded-xs bg-[#203b80]" />
-                                Created
+                                已创建
                               </div>
                               <div className="font-medium">
                                 {project.created_issues} {t("issues")}
@@ -224,7 +224,7 @@ export const ProfileSidebar = observer(function ProfileSidebar(props: TProfileSi
                             <div className="flex items-center justify-between gap-2">
                               <div className="flex items-center gap-2">
                                 <div className="h-2.5 w-2.5 rounded-xs bg-[#3f76ff]" />
-                                Assigned
+                                已指派
                               </div>
                               <div className="font-medium">
                                 {project.assigned_issues} {t("issues")}
@@ -233,7 +233,7 @@ export const ProfileSidebar = observer(function ProfileSidebar(props: TProfileSi
                             <div className="flex items-center justify-between gap-2">
                               <div className="flex items-center gap-2">
                                 <div className="h-2.5 w-2.5 rounded-xs bg-[#f59e0b]" />
-                                Due
+                                待处理
                               </div>
                               <div className="font-medium">
                                 {project.pending_issues} {t("issues")}
@@ -242,7 +242,7 @@ export const ProfileSidebar = observer(function ProfileSidebar(props: TProfileSi
                             <div className="flex items-center justify-between gap-2">
                               <div className="flex items-center gap-2">
                                 <div className="h-2.5 w-2.5 rounded-xs bg-[#16a34a]" />
-                                Completed
+                                已完成
                               </div>
                               <div className="font-medium">
                                 {project.completed_issues} {t("issues")}

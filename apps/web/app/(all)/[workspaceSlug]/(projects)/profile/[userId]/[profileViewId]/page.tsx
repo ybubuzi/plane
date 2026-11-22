@@ -11,9 +11,9 @@ import { ProfileIssuesPage } from "@/components/profile/profile-issues";
 import type { Route } from "./+types/page";
 
 const ProfilePageHeader = {
-  assigned: "Profile - Assigned",
-  created: "Profile - Created",
-  subscribed: "Profile - Subscribed",
+  assigned: "个人资料 - 已指派",
+  created: "个人资料 - 已创建",
+  subscribed: "个人资料 - 已订阅",
 };
 
 function isValidProfileViewId(viewId: string): viewId is keyof typeof ProfilePageHeader {

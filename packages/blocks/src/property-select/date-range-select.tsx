@@ -147,6 +147,7 @@ export function DateRangeSelect(props: DateRangeSelectProps) {
     >
       <Calendar
         mode="range"
+        locale={zhCN}
         selected={shown.from ? { from: shown.from, to: shown.to ?? undefined } : undefined}
         defaultMonth={value.from ?? defaultMonth}
         disabled={disabledMatchers}
