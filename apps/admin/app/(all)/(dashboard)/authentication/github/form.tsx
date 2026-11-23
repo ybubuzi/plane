@@ -117,7 +117,7 @@ export function InstanceGithubConfigForm(props: Props) {
           >
             GitHub OAuth 应用设置
           </a>
-          处创建该应用。
+          页面创建该应用。
         </>
       ),
     },
@@ -140,7 +140,7 @@ export function InstanceGithubConfigForm(props: Props) {
           >
             GitHub OAuth 应用设置
           </a>
-          处设置回调地址。
+          页面设置回调地址。
         </>
       ),
     },

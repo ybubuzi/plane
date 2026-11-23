@@ -120,7 +120,7 @@ export function InstanceGiteaConfigForm(props: Props) {
           >
             Gitea OAuth 应用设置
           </a>
-          处设置回调地址。
+          页面设置回调地址。
         </>
       ),
     },

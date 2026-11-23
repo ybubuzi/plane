@@ -50,7 +50,7 @@ export function InstanceGoogleConfigForm(props: Props) {
       label: "客户端 ID",
       description: (
         <>
-          您的客户端 ID 位于 Google API 控制台中。{" "}
+          您的客户端 ID 位于 Google API 控制台中。
           <a
             href="https://developers.google.com/identity/protocols/oauth2/javascript-implicit-flow#creatingcred"
             target="_blank"
@@ -72,7 +72,7 @@ export function InstanceGoogleConfigForm(props: Props) {
       label: "客户端密钥",
       description: (
         <>
-          您的客户端密钥同样位于 Google API 控制台中。{" "}
+          您的客户端密钥同样位于 Google API 控制台中。
           <a
             href="https://developers.google.com/identity/oauth2/web/guides/get-google-api-clientid"
             target="_blank"
@@ -98,7 +98,7 @@ export function InstanceGoogleConfigForm(props: Props) {
       description: (
         <p>
           此值会自动生成，请将其填入您的 <CodeBlock darkerShade>Authorized JavaScript origins</CodeBlock> 字段。该 OAuth
-          客户端的凭据可在{" "}
+          客户端的凭据可在
           <a
             href="https://console.cloud.google.com/apis/credentials/oauthclient"
             target="_blank"
@@ -121,7 +121,7 @@ export function InstanceGoogleConfigForm(props: Props) {
       description: (
         <p>
           此值会自动生成，请将其填入您的 <CodeBlock darkerShade>Authorized Redirect URI</CodeBlock> 字段。该 OAuth
-          客户端的凭据可在{" "}
+          客户端的凭据可在
           <a
             href="https://console.cloud.google.com/apis/credentials/oauthclient"
             target="_blank"
