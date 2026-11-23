@@ -33,7 +33,7 @@ export function AuthFooter() {
   return (
     <div className="flex flex-col items-center gap-6">
       <span className="text-body-xs-regular whitespace-nowrap text-tertiary">
-        Join 10,000+ teams building with Plane
+        已有 10,000+ 团队正在使用 Plane 开展工作
       </span>
       <div className="flex w-full flex-wrap items-center justify-center gap-x-10 gap-y-4">
         {BRAND_LOGOS.map((brand) => (

@@ -19,8 +19,8 @@ const LEGAL_LINKS = {
 } as const;
 
 const MESSAGES = {
-  [EAuthModes.SIGN_UP]: "By creating an account",
-  [EAuthModes.SIGN_IN]: "By signing in",
+  [EAuthModes.SIGN_UP]: "注册即表示您理解并同意",
+  [EAuthModes.SIGN_IN]: "登录即表示您理解并同意",
 } as const;
 
 // Reusable link component to reduce duplication
@@ -36,9 +36,9 @@ export function TermsAndConditions({ authType = EAuthModes.SIGN_IN }: TermsAndCo
   return (
     <div className="flex items-center justify-center">
       <p className="text-center text-body-xs-regular whitespace-pre-line text-tertiary">
-        {`${MESSAGES[authType]}, you understand and agree to \n our `}
-        <LegalLink href={LEGAL_LINKS.termsOfService}>Terms of Service</LegalLink> and{" "}
-        <LegalLink href={LEGAL_LINKS.privacyPolicy}>Privacy Policy</LegalLink>.
+        {`${MESSAGES[authType]}我们的`}
+        <LegalLink href={LEGAL_LINKS.termsOfService}>《服务条款》</LegalLink>和
+        <LegalLink href={LEGAL_LINKS.privacyPolicy}>《隐私政策》</LegalLink>。
       </p>
     </div>
   );

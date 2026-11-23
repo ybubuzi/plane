@@ -104,7 +104,7 @@ export function AuthUniqueCodeForm(props: TAuthUniqueCodeForm) {
           {uniqueCodeFormData.email.length > 0 && (
             <button
               type="button"
-              aria-label="Clear email"
+              aria-label="清除邮箱"
               className="absolute right-3 hover:cursor-pointer"
               onClick={handleEmailClear}
               tabIndex={-1}
@@ -164,7 +164,7 @@ export function AuthUniqueCodeForm(props: TAuthUniqueCodeForm) {
           stretch="full"
           disabled={isButtonDisabled}
           loading={isSubmitting && !isRequestingNewCode}
-          label={isRequestingNewCode ? "Sending code" : "Continue"}
+          label={isRequestingNewCode ? "正在发送验证码" : "继续"}
         />
       </div>
     </form>

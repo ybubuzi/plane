@@ -142,7 +142,7 @@ export const AuthPasswordForm = observer(function AuthPasswordForm(props: Props)
           {passwordFormData.email.length > 0 && (
             <button
               type="button"
-              aria-label="Clear email"
+              aria-label="清除邮箱"
               className="absolute right-3 hover:cursor-pointer"
               onClick={handleEmailClear}
               tabIndex={-1}
@@ -177,7 +177,7 @@ export const AuthPasswordForm = observer(function AuthPasswordForm(props: Props)
               type="button"
               variant="ghost"
               size="sm"
-              aria-label={showPassword.password ? "Hide password" : "Show password"}
+              aria-label={showPassword.password ? "隐藏密码" : "显示密码"}
               aria-pressed={showPassword.password}
               onClick={() => handleShowPassword("password")}
               icon={<Icon icon={showPassword.password ? HideOutline : ShowOutline} />}
@@ -210,7 +210,7 @@ export const AuthPasswordForm = observer(function AuthPasswordForm(props: Props)
                 type="button"
                 variant="ghost"
                 size="sm"
-                aria-label={showPassword.retypePassword ? "Hide password" : "Show password"}
+                aria-label={showPassword.retypePassword ? "隐藏密码" : "显示密码"}
                 aria-pressed={showPassword.retypePassword}
                 onClick={() => handleShowPassword("retypePassword")}
                 icon={<Icon icon={showPassword.retypePassword ? HideOutline : ShowOutline} />}
@@ -243,7 +243,7 @@ export const AuthPasswordForm = observer(function AuthPasswordForm(props: Props)
                 variant="secondary"
                 size="lg"
                 stretch="full"
-                label="Sign in with unique code"
+                label="使用唯一码登录"
                 onClick={redirectToUniqueCodeSignIn}
               />
             )}
@@ -256,7 +256,7 @@ export const AuthPasswordForm = observer(function AuthPasswordForm(props: Props)
             stretch="full"
             disabled={isButtonDisabled}
             loading={isSubmitting}
-            label="Create account"
+            label="创建账号"
           />
         )}
       </div>

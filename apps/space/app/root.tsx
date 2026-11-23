@@ -24,7 +24,7 @@ import interVariableWoff2 from "@fontsource-variable/inter/files/inter-latin-wgh
 import "@fontsource/material-symbols-rounded";
 import "@fontsource/ibm-plex-mono";
 
-const APP_TITLE = "Plane Publish | Make your Plane boards public with one-click";
+const APP_TITLE = "Plane Publish | 一键将您的 Plane 看板公开";
 const APP_DESCRIPTION = "Plane Publish is a customer feedback management tool built on top of plane.so";
 
 export const links: Route.LinksFunction = () => [

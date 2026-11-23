@@ -41,7 +41,7 @@ export function DeactivateAccountModal(props: Props) {
         setToast({
           type: "success",
           title: "Success!",
-          message: "Account deactivated successfully.",
+          message: "账户已注销。",
         });
         signOut();
         router.push("/");
