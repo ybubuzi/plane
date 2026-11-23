@@ -16,8 +16,8 @@ function PageNotFound() {
         align="center"
         assetKey="error-404"
         assetClassName="size-40"
-        title="Oops! Something went wrong."
-        description="Sorry, the page you are looking for cannot be found. It may have been removed, had its name changed, or is temporarily unavailable."
+        title="页面出错了。"
+        description="抱歉，您访问的页面不存在。它可能已被删除、重命名，或暂时无法访问。"
         customButton={
           <Button
             variant="primary"
@@ -25,7 +25,7 @@ function PageNotFound() {
             stretch="auto"
             nativeButton={false}
             render={<Link to="/general/" />}
-            label="Go to general settings"
+            label="前往通用设置"
           />
         }
       />

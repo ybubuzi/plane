@@ -56,9 +56,8 @@ const InstanceAuthenticationPage = observer(function InstanceAuthenticationPage(
           if (!canDisable) {
             setToast({
               type: "error",
-              title: "Cannot disable authentication",
-              message:
-                "At least one authentication method must remain enabled. Please enable another method before disabling this one.",
+              title: "无法关闭身份验证方式",
+              message: "至少需要保留一种身份验证方式。请先启用其他方式，再关闭当前方式。",
             });
             return;
           }
@@ -75,14 +74,14 @@ const InstanceAuthenticationPage = observer(function InstanceAuthenticationPage(
       const updateConfigPromise = updateInstanceConfigurations(payload);
 
       setPromiseToast(updateConfigPromise, {
-        loading: "Saving configuration",
+        loading: "正在保存配置",
         success: {
           title: "成功",
-          message: () => "Configuration saved successfully",
+          message: () => "配置已保存",
         },
         error: {
           title: "错误",
-          message: () => "Failed to save configuration",
+          message: () => "保存配置失败",
         },
       });
 
@@ -123,12 +122,8 @@ const InstanceAuthenticationPage = observer(function InstanceAuthenticationPage(
           <div className="flex w-full items-start justify-between gap-4 rounded-lg border border-subtle bg-layer-2 px-4 py-3 md:items-center md:gap-8">
             <div className="flex min-w-0 grow items-center gap-4">
               <div className="min-w-0 grow">
-                <div className="pb-1 text-body-sm-medium text-primary">
-                  允许任何人注册（无需邀请）
-                </div>
-                <div className="text-body-xs-regular leading-5 text-tertiary">
-                  关闭后，仅受邀用户才能注册。
-                </div>
+                <div className="pb-1 text-body-sm-medium text-primary">允许任何人注册（无需邀请）</div>
+                <div className="text-body-xs-regular leading-5 text-tertiary">关闭后，仅受邀用户才能注册。</div>
               </div>
             </div>
             <div className={cn("shrink-0", { "opacity-70": isSubmitting })}>
@@ -149,7 +144,7 @@ const InstanceAuthenticationPage = observer(function InstanceAuthenticationPage(
               </div>
             </div>
           </div>
-          <h3 className="pt-3 text-h6-medium text-primary">Available authentication modes</h3>
+          <h3 className="pt-3 text-h6-medium text-primary">可用的身份验证方式</h3>
           {authenticationModes.map((method) => (
             <AuthenticationMethodCard
               key={method.key}

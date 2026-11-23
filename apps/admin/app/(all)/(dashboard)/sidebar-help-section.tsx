@@ -6,7 +6,6 @@
 
 import { observer } from "mobx-react";
 import { WEB_BASE_URL } from "@plane/constants";
-import { useTranslation } from "@plane/i18n";
 // plane internal packages
 import { Button } from "@makeplane/propel/components/button";
 import { Icon } from "@makeplane/propel/components/icon";
@@ -29,33 +28,29 @@ import { useInstance, useTheme } from "@/hooks/store";
 
 const helpOptions = [
   {
-    name: "Documentation",
+    name: "文档",
     href: "https://docs.plane.so/",
     Icon: PagesOutline,
   },
   {
-    name: "Join our Forum",
+    name: "加入官方论坛",
     href: "https://forum.plane.so",
     Icon: ChatOutline,
   },
   {
-    name: "Report a bug",
+    name: "反馈问题",
     href: "https://github.com/makeplane/plane/issues/new/choose",
     Icon: Github,
   },
 ];
 
 export const AdminSidebarHelpSection = observer(function AdminSidebarHelpSection() {
-  // plane hooks
-  const { t } = useTranslation();
   // store
   const { instance } = useInstance();
   const { isSidebarCollapsed, toggleSidebar } = useTheme();
 
   const redirectionLink = encodeURI(WEB_BASE_URL + "/");
-  const toggleSidebarLabel = isSidebarCollapsed
-    ? t("aria_labels.projects_sidebar.expand_sidebar")
-    : t("aria_labels.projects_sidebar.collapse_sidebar");
+  const toggleSidebarLabel = isSidebarCollapsed ? "展开侧边栏" : "收起侧边栏";
 
   return (
     <div
@@ -105,9 +100,7 @@ export const AdminSidebarHelpSection = observer(function AdminSidebarHelpSection
           <MenuContent
             side={isSidebarCollapsed ? "right" : "top"}
             align="end"
-            footer={
-              instance?.current_version ? <MenuFooter>Version: v{instance.current_version}</MenuFooter> : undefined
-            }
+            footer={instance?.current_version ? <MenuFooter>版本：v{instance.current_version}</MenuFooter> : undefined}
           >
             {helpOptions.map(({ name, Icon: HelpIcon, href }) => (
               <MenuLinkItem

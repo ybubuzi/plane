@@ -81,8 +81,7 @@ export function InstanceEmailForm(props: IInstanceEmailForm) {
       key: "EMAIL_FROM",
       type: "text",
       label: "发件人邮箱地址",
-      description:
-        "这是用户收到本实例邮件时看到的发件人地址，您需要验证此地址。",
+      description: "这是用户收到本实例邮件时看到的发件人地址，您需要验证此地址。",
       placeholder: "no-reply@projectplane.so",
       error: Boolean(errors.EMAIL_FROM),
       required: true,

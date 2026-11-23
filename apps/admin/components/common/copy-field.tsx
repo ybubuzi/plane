@@ -11,7 +11,6 @@ import { Icon } from "@makeplane/propel/components/icon";
 import { IconButton } from "@makeplane/propel/components/icon-button";
 import { CopyOutline } from "@makeplane/propel/icons";
 import { setToast } from "@plane/blocks/toast";
-import { useTranslation } from "@plane/i18n";
 import { copyTextToClipboard } from "@plane/utils";
 
 type Props = {
@@ -29,8 +28,6 @@ export type TCopyField = {
 
 export function CopyField(props: Props) {
   const { label, url, description } = props;
-  // plane hooks
-  const { t } = useTranslation();
   // ids linking the copy button to the field it copies
   const labelId = useId();
   const valueId = useId();
@@ -38,10 +35,10 @@ export function CopyField(props: Props) {
   const handleCopy = async () => {
     try {
       await copyTextToClipboard(url);
-      setToast({ type: "success", title: t("copied_to_clipboard") });
+      setToast({ type: "success", title: "已复制到剪贴板" });
     } catch (error) {
       console.error(error);
-      setToast({ type: "error", title: t("common.clipboard_copy_failed") });
+      setToast({ type: "error", title: "复制到剪贴板失败" });
     }
   };
 
@@ -58,7 +55,7 @@ export function CopyField(props: Props) {
           type="button"
           variant="ghost"
           size="sm"
-          aria-label={t("common.tooltip.copy_to_clipboard")}
+          aria-label="复制到剪贴板"
           aria-describedby={`${labelId} ${valueId}`}
           icon={<Icon icon={CopyOutline} />}
           onClick={() => void handleCopy()}

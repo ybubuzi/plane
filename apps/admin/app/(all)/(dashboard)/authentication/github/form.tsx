@@ -48,18 +48,19 @@ export function InstanceGithubConfigForm(props: Props) {
     {
       key: "GITHUB_CLIENT_ID",
       type: "text",
-      label: "Client ID",
+      label: "客户端 ID",
       description: (
         <>
-          You will get this from your{" "}
+          请前往{" "}
           <a
             href="https://github.com/settings/applications/new"
             target="_blank"
             className="text-accent-primary hover:underline"
             rel="noreferrer"
           >
-            GitHub OAuth application settings.
+            GitHub OAuth 应用设置
           </a>
+          中获取。
         </>
       ),
       placeholder: "70a44354520df8bd9bcd",
@@ -69,18 +70,19 @@ export function InstanceGithubConfigForm(props: Props) {
     {
       key: "GITHUB_CLIENT_SECRET",
       type: "password",
-      label: "Client secret",
+      label: "客户端密钥",
       description: (
         <>
-          Your client secret is also found in your{" "}
+          客户端密钥同样可以在{" "}
           <a
             href="https://github.com/settings/applications/new"
             target="_blank"
             className="text-accent-primary hover:underline"
             rel="noreferrer"
           >
-            GitHub OAuth application settings.
+            GitHub OAuth 应用设置
           </a>
+          中获取。
         </>
       ),
       placeholder: "9b0050f94ec1b744e32ce79ea4ffacd40d4119cb",
@@ -90,8 +92,8 @@ export function InstanceGithubConfigForm(props: Props) {
     {
       key: "GITHUB_ORGANIZATION_ID",
       type: "text",
-      label: "Organization ID",
-      description: <>The organization github ID.</>,
+      label: "组织 ID",
+      description: <>GitHub 组织 ID（可选）。</>,
       placeholder: "123456789",
       error: Boolean(errors.GITHUB_ORGANIZATION_ID),
       required: false,
@@ -101,20 +103,21 @@ export function InstanceGithubConfigForm(props: Props) {
   const GITHUB_COMMON_SERVICE_DETAILS: TCopyField[] = [
     {
       key: "Origin_URL",
-      label: "Origin URL",
+      label: "来源 URL",
       url: originURL,
       description: (
         <>
-          We will auto-generate this. Paste this into the <CodeBlock darkerShade>Authorized origin URL</CodeBlock> field{" "}
+          此值会自动生成，请将其填入 <CodeBlock darkerShade>Authorized origin URL</CodeBlock> 字段。可前往{" "}
           <a
             href="https://github.com/settings/applications/new"
             target="_blank"
             className="text-accent-primary hover:underline"
             rel="noreferrer"
-            aria-label="GitHub OAuth application settings"
+            aria-label="GitHub OAuth 应用设置"
           >
-            此处获取。
+            GitHub OAuth 应用设置
           </a>
+          处创建该应用。
         </>
       ),
     },
@@ -123,21 +126,21 @@ export function InstanceGithubConfigForm(props: Props) {
   const GITHUB_SERVICE_DETAILS: TCopyField[] = [
     {
       key: "Callback_URI",
-      label: "Callback URI",
+      label: "回调地址",
       url: `${originURL}/auth/github/callback/`,
       description: (
         <>
-          We will auto-generate this. Paste this into your <CodeBlock darkerShade>Authorized Callback URI</CodeBlock>{" "}
-          field{" "}
+          此值会自动生成，请将其填入 <CodeBlock darkerShade>Authorized Callback URI</CodeBlock> 字段。可前往{" "}
           <a
             href="https://github.com/settings/applications/new"
             target="_blank"
             className="text-accent-primary hover:underline"
             rel="noreferrer"
-            aria-label="GitHub OAuth application settings"
+            aria-label="GitHub OAuth 应用设置"
           >
-            此处获取。
+            GitHub OAuth 应用设置
           </a>
+          处设置回调地址。
         </>
       ),
     },

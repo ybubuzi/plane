@@ -51,10 +51,8 @@ export function InstanceGiteaConfigForm(props: Props) {
     {
       key: "GITEA_HOST",
       type: "text",
-      label: "Gitea Host",
-      description: (
-        <>Use the URL of your Gitea instance. For the official Gitea instance, use &quot;https://gitea.com&quot;.</>
-      ),
+      label: "Gitea 主机",
+      description: <>填写您的 Gitea 实例地址。若使用官方实例，请填写 &quot;https://gitea.com&quot;。</>,
       placeholder: "https://gitea.com",
       error: Boolean(errors.GITEA_HOST),
       required: true,
@@ -62,18 +60,19 @@ export function InstanceGiteaConfigForm(props: Props) {
     {
       key: "GITEA_CLIENT_ID",
       type: "text",
-      label: "Client ID",
+      label: "客户端 ID",
       description: (
         <>
-          You will get this from your{" "}
+          请前往{" "}
           <a
             href="https://gitea.com/user/settings/applications"
             target="_blank"
             className="text-accent-primary hover:underline"
             rel="noreferrer"
           >
-            Gitea OAuth application settings.
+            Gitea OAuth 应用设置
           </a>
+          中获取。
         </>
       ),
       placeholder: "70a44354520df8bd9bcd",
@@ -83,18 +82,19 @@ export function InstanceGiteaConfigForm(props: Props) {
     {
       key: "GITEA_CLIENT_SECRET",
       type: "password",
-      label: "Client secret",
+      label: "客户端密钥",
       description: (
         <>
-          Your client secret is also found in your{" "}
+          客户端密钥同样可以在{" "}
           <a
             href="https://gitea.com/user/settings/applications"
             target="_blank"
             className="text-accent-primary hover:underline"
             rel="noreferrer"
           >
-            Gitea OAuth application settings.
+            Gitea OAuth 应用设置
           </a>
+          中获取。
         </>
       ),
       placeholder: "9b0050f94ec1b744e32ce79ea4ffacd40d4119cb",
@@ -106,21 +106,21 @@ export function InstanceGiteaConfigForm(props: Props) {
   const GITEA_SERVICE_FIELD: TCopyField[] = [
     {
       key: "Callback_URI",
-      label: "Callback URI",
+      label: "回调地址",
       url: `${originURL}/auth/gitea/callback/`,
       description: (
         <>
-          We will auto-generate this. Paste this into your <CodeBlock darkerShade>Authorized Callback URI</CodeBlock>{" "}
-          field{" "}
+          此值会自动生成，请将其填入 <CodeBlock darkerShade>Authorized Callback URI</CodeBlock> 字段。可前往{" "}
           <a
             href={`${giteaHost || "https://gitea.com"}/user/settings/applications`}
             target="_blank"
             className="text-accent-primary hover:underline"
             rel="noreferrer"
-            aria-label="Gitea OAuth application settings"
+            aria-label="Gitea OAuth 应用设置"
           >
-            此处获取。
+            Gitea OAuth 应用设置
           </a>
+          处设置回调地址。
         </>
       ),
     },

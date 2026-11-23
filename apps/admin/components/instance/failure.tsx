@@ -29,9 +29,7 @@ export const InstanceFailureView = observer(function InstanceFailureView() {
           <div className="relative flex flex-col items-center justify-center space-y-4">
             <img src={instanceImage} alt="实例故障插图" />
             <h3 className="text-center text-h4-medium text-on-color">无法获取实例详情。</h3>
-            <p className="text-center text-body-sm-medium">
-              无法获取实例详情。别担心，可能只是网络连接问题。
-            </p>
+            <p className="text-center text-body-sm-medium">无法获取实例详情。别担心，可能只是网络连接问题。</p>
           </div>
           <div className="flex justify-center">
             <Button variant="primary" size="md" stretch="auto" onClick={handleRetry} label="重试" />

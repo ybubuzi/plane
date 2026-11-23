@@ -51,8 +51,8 @@ export const coreSidebarMenuLinks: Record<TCoreSidebarMenuKey, TSidebarMenuItem>
   },
   image: {
     Icon: ImageOutline,
-    name: "Plane 图床",
-    description: "允许第三方图床。",
+    name: "第三方图床",
+    description: "配置 Unsplash 等第三方图片来源。",
     href: `/image/`,
   },
 };

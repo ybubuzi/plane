@@ -87,7 +87,8 @@ export function InstanceAIForm(props: IInstanceAIForm) {
       key: "LLM_API_BASE",
       type: "text",
       label: "Base URL（可选）",
-      description: "兼容 OpenAI 接口的第三方服务地址，通常需带 /v1（如 https://api.deepseek.com/v1）。留空则走 OpenAI 官方。",
+      description:
+        "兼容 OpenAI 接口的第三方服务地址，通常需带 /v1（如 https://api.deepseek.com/v1）。留空则走 OpenAI 官方。",
       placeholder: "https://api.openai.com/v1",
       error: Boolean(errors.LLM_API_BASE),
       required: false,
@@ -113,7 +114,9 @@ export function InstanceAIForm(props: IInstanceAIForm) {
       <div className="space-y-3">
         <div>
           <div className="pb-1 text-h6-medium text-primary">OpenAI / 兼容接口</div>
-          <div className="text-body-sm-regular text-tertiary">支持 OpenAI 及兼容 OpenAI 接口的第三方服务（填写 Base URL 与对应模型名）。</div>
+          <div className="text-body-sm-regular text-tertiary">
+            支持 OpenAI 及兼容 OpenAI 接口的第三方服务（填写 Base URL 与对应模型名）。
+          </div>
         </div>
         <div className="grid-col grid w-full grid-cols-1 items-center justify-between gap-x-12 gap-y-8 lg:grid-cols-3">
           {aiFormFields.map((field) => (

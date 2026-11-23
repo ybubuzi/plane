@@ -42,14 +42,14 @@ const InstanceGiteaAuthenticationPage = observer(function InstanceGiteaAuthentic
     const updateConfigPromise = updateInstanceConfigurations(payload);
 
     setPromiseToast(updateConfigPromise, {
-      loading: "Saving Configuration",
+      loading: "正在保存配置",
       success: {
-        title: "Configuration saved",
-        message: () => `Gitea authentication is now ${value === "1" ? "active" : "disabled"}.`,
+        title: "配置已保存",
+        message: () => `Gitea 身份验证已${value === "1" ? "启用" : "关闭"}。`,
       },
       error: {
         title: "错误",
-        message: () => "Failed to save configuration",
+        message: () => "保存配置失败",
       },
     });
 
@@ -70,11 +70,11 @@ const InstanceGiteaAuthenticationPage = observer(function InstanceGiteaAuthentic
       customHeader={
         <AuthenticationMethodCard
           name="Gitea"
-          description="Allow members to login or sign up to plane with their Gitea accounts."
+          description="允许成员使用 Gitea 账户登录或注册 Plane。"
           icon={<img src={giteaLogo} height={24} width={24} alt="Gitea Logo" />}
           config={
             <Switch
-              aria-label="Enable Gitea authentication"
+              aria-label="启用 Gitea 身份验证"
               checked={isGiteaEnabled}
               onCheckedChange={() => {
                 updateConfig("IS_GITEA_ENABLED", isGiteaEnabled ? "0" : "1");
@@ -102,6 +102,6 @@ const InstanceGiteaAuthenticationPage = observer(function InstanceGiteaAuthentic
     </PageWrapper>
   );
 });
-export const meta: Route.MetaFunction = () => [{ title: "Gitea Authentication - God Mode" }];
+export const meta: Route.MetaFunction = () => [{ title: "Gitea 身份验证 - 管理后台" }];
 
 export default InstanceGiteaAuthenticationPage;

@@ -51,7 +51,7 @@ export function InstanceGitlabConfigForm(props: Props) {
       label: "主机",
       description: (
         <>
-          This is either https://gitlab.com or the <CodeBlock>domain.tld</CodeBlock> where you host GitLab.
+          可以是 https://gitlab.com，也可以是您自建 GitLab 的 <CodeBlock>domain.tld</CodeBlock> 域名。
         </>
       ),
       placeholder: "https://gitlab.com",
@@ -61,19 +61,19 @@ export function InstanceGitlabConfigForm(props: Props) {
     {
       key: "GITLAB_CLIENT_ID",
       type: "text",
-      label: "Application ID",
+      label: "应用 ID",
       description: (
         <>
-          Get this from your{" "}
+          请前往{" "}
           <a
             href="https://docs.gitlab.com/ee/integration/oauth_provider.html"
             target="_blank"
             className="text-accent-primary hover:underline"
             rel="noreferrer"
           >
-            GitLab OAuth application settings
+            GitLab OAuth 应用设置
           </a>
-          .
+          中获取。
         </>
       ),
       placeholder: "c2ef2e7fc4e9d15aa7630f5637d59e8e4a27ff01dceebdb26b0d267b9adcf3c3",
@@ -83,19 +83,19 @@ export function InstanceGitlabConfigForm(props: Props) {
     {
       key: "GITLAB_CLIENT_SECRET",
       type: "password",
-      label: "Secret",
+      label: "密钥",
       description: (
         <>
-          The client secret is also found in your{" "}
+          客户端密钥同样可以在{" "}
           <a
             href="https://docs.gitlab.com/ee/integration/oauth_provider.html"
             target="_blank"
             className="text-accent-primary hover:underline"
             rel="noreferrer"
           >
-            GitLab OAuth application settings
+            GitLab OAuth 应用设置
           </a>
-          .
+          中获取。
         </>
       ),
       placeholder: "gloas-f79cfa9a03c97f6ffab303177a5a6778a53c61e3914ba093412f68a9298a1b28",
@@ -107,20 +107,20 @@ export function InstanceGitlabConfigForm(props: Props) {
   const GITLAB_SERVICE_FIELD: TCopyField[] = [
     {
       key: "Callback_URL",
-      label: "Callback URL",
+      label: "回调地址",
       url: `${originURL}/auth/gitlab/callback/`,
       description: (
         <>
-          We will auto-generate this. Paste this into the <CodeBlock darkerShade>Redirect URI</CodeBlock> field of your{" "}
+          此值会自动生成，请将其填入 <CodeBlock darkerShade>Redirect URI</CodeBlock> 字段。可前往{" "}
           <a
             href="https://docs.gitlab.com/ee/integration/oauth_provider.html"
             target="_blank"
             className="text-accent-primary hover:underline"
             rel="noreferrer"
           >
-            GitLab OAuth application
+            GitLab OAuth 应用设置
           </a>
-          .
+          处设置回调地址。
         </>
       ),
     },

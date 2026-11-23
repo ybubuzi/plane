@@ -45,7 +45,7 @@ export function InstanceImageConfigForm(props: IInstanceImageConfigForm) {
       setToast({
         type: "success",
         title: "成功",
-        message: "Image Configuration Settings updated successfully",
+        message: "图片配置已更新",
       });
     } catch (err) {
       console.error(err);
@@ -59,18 +59,18 @@ export function InstanceImageConfigForm(props: IInstanceImageConfigForm) {
           control={control}
           type="password"
           name="UNSPLASH_ACCESS_KEY"
-          label="来自您 Unsplash 账户的 Access key"
+          label="Unsplash 账户的 Access Key"
           description={
             <>
-              You will find your access key in your Unsplash developer console.&nbsp;
+              Access Key 可在 Unsplash 开发者控制台中查看。&nbsp;
               <a
                 href="https://unsplash.com/documentation#creating-a-developer-account"
                 target="_blank"
                 className="text-accent-primary hover:underline"
                 rel="noreferrer"
-                aria-label="Unsplash developer account documentation"
+                aria-label="Unsplash 开发者账户文档"
               >
-                Learn more.
+                了解更多。
               </a>
             </>
           }

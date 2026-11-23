@@ -10,7 +10,6 @@ import { useRouter } from "next/navigation";
 import { Controller, useForm } from "react-hook-form";
 // plane imports
 import { WEB_BASE_URL, ORGANIZATION_SIZE, RESTRICTED_URLS } from "@plane/constants";
-import { useTranslation } from "@plane/i18n";
 import { Button } from "@makeplane/propel/components/button";
 import { InputField } from "@makeplane/propel/components/input-field";
 import { Select, SelectContent, SelectItem, SelectList, SelectTrigger } from "@makeplane/propel/components/select";
@@ -25,8 +24,6 @@ import { useWorkspace } from "@/hooks/store";
 const instanceWorkspaceService = new InstanceWorkspaceService();
 
 export function WorkspaceCreateForm() {
-  // plane hooks
-  const { t } = useTranslation();
   const organizationSizeLabelId = useId();
   const organizationSizeErrorId = useId();
   // router
@@ -68,7 +65,7 @@ export function WorkspaceCreateForm() {
             .then(async () => {
               setToast({
                 type: "success",
-                title: "Success!",
+                title: "成功！",
                 message: "工作区创建成功。",
               });
               router.push(`/workspace`);
@@ -76,7 +73,7 @@ export function WorkspaceCreateForm() {
             .catch(() => {
               setToast({
                 type: "error",
-                title: "Error!",
+                title: "错误！",
                 message: "工作区创建失败，请重试。",
               });
             });
@@ -85,7 +82,7 @@ export function WorkspaceCreateForm() {
       .catch(() => {
         setToast({
           type: "error",
-          title: "Error!",
+          title: "错误！",
           message: "创建工作区时发生错误，请重试。",
         });
       });
@@ -112,7 +109,7 @@ export function WorkspaceCreateForm() {
             <InputField
               size="lg"
               orientation="vertical"
-              label={t("workspace_creation.form.name.label")}
+              label="工作区名称"
               required
               id="workspaceName"
               type="text"
@@ -125,7 +122,7 @@ export function WorkspaceCreateForm() {
                 });
               }}
               ref={ref}
-              placeholder="Something familiar and recognizable is always best."
+              placeholder="取一个熟悉、容易记住的名字。"
               error={errors.name?.message}
             />
           )}
@@ -142,7 +139,7 @@ export function WorkspaceCreateForm() {
               type="text"
               size="lg"
               orientation="vertical"
-              label={t("workspace_creation.form.url.label")}
+              label="工作区 URL"
               required
               startIcon={
                 <span className="text-body-xs-regular whitespace-nowrap text-secondary">{workspaceBaseURL}</span>
@@ -157,9 +154,9 @@ export function WorkspaceCreateForm() {
               placeholder="workspace-name"
               error={
                 slugError
-                  ? "This URL is taken. Try something else."
+                  ? "该 URL 已被占用，请换一个。"
                   : invalidSlug
-                    ? "URLs can contain only ( - ), ( _ ) and alphanumeric characters."
+                    ? "URL 只能包含连字符（-）、下划线（_）和字母数字。"
                     : errors.slug?.message
               }
             />
@@ -167,7 +164,7 @@ export function WorkspaceCreateForm() {
         />
         <div className="flex flex-col gap-2">
           <span id={organizationSizeLabelId} className="text-body-xs-medium text-primary">
-            {t("workspace_creation.form.organization_size.label")}
+            组织规模
             <span className="ml-0.5 text-danger-primary" aria-hidden="true">
               *
             </span>
@@ -176,13 +173,13 @@ export function WorkspaceCreateForm() {
             <Controller
               name="organization_size"
               control={control}
-              rules={{ required: "This is a required field." }}
+              rules={{ required: "此项为必填项。" }}
               render={({ field: { value, onChange } }) => (
                 <Select value={value} onValueChange={onChange}>
                   <SelectTrigger
                     variant="secondary"
                     size="lg"
-                    placeholder={t("workspace_creation.form.organization_size.placeholder")}
+                    placeholder="选择组织规模"
                     aria-required="true"
                     aria-labelledby={organizationSizeLabelId}
                     aria-describedby={errors.organization_size ? organizationSizeErrorId : undefined}

@@ -65,7 +65,7 @@ export const AdminSidebarDropdown = observer(function AdminSidebarDropdown() {
       <MenuItem
         variant="danger"
         icon={<Icon icon={LogOutOutline} />}
-        label="Sign out"
+        label="退出登录"
         onClick={() => signOutFormRef.current?.requestSubmit()}
       />
     </MenuContent>
@@ -92,7 +92,7 @@ export const AdminSidebarDropdown = observer(function AdminSidebarDropdown() {
           <Menu>
             <MenuTrigger
               render={
-                <IconButton variant="ghost" size="lg" type="button" aria-label="Instance admin menu">
+                <IconButton variant="ghost" size="lg" type="button" aria-label="实例管理员菜单">
                   <Icon icon={UserCogOutline} />
                 </IconButton>
               }
@@ -110,7 +110,7 @@ export const AdminSidebarDropdown = observer(function AdminSidebarDropdown() {
             <Menu>
               <MenuTrigger
                 render={
-                  <IconButton variant="ghost" size="lg" type="button" aria-label="Account menu">
+                  <IconButton variant="ghost" size="lg" type="button" aria-label="账户菜单">
                     <Avatar
                       alt={currentUser.display_name ?? "Admin user"}
                       fallback={currentUser.display_name?.[0]?.toUpperCase()}

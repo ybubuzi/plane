@@ -28,7 +28,7 @@ export const HamburgerToggle = observer(function HamburgerToggle() {
       <IconButton
         variant="ghost"
         size="md"
-        aria-label="Toggle sidebar"
+        aria-label="切换侧边栏"
         aria-expanded={!isSidebarCollapsed}
         aria-controls="admin-sidebar"
         icon={<Icon icon={MenuOutline} />}

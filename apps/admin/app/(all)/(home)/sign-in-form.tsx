@@ -107,10 +107,7 @@ export function InstanceSignInForm() {
       <AuthHeader />
       <div className="mt-10 flex w-full flex-grow flex-col items-center justify-center py-6">
         <div className="relative flex w-full max-w-[22.5rem] flex-col gap-6">
-          <FormHeader
-            heading="管理您的 Plane 实例"
-            subHeading="配置实例级设置以保护您的实例"
-          />
+          <FormHeader heading="管理您的 Plane 实例" subHeading="配置实例级设置以保护您的实例" />
           <form
             className="space-y-4"
             method="POST"

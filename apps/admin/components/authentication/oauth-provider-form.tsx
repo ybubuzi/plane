@@ -56,7 +56,7 @@ export function OAuthProviderForm<T extends FieldValues>(props: Props<T>) {
       <div className="flex flex-col gap-8">
         <div className="grid w-full grid-cols-2 gap-x-8 gap-y-8">
           <div className="col-span-2 flex flex-col gap-y-4 pt-1 md:col-span-1">
-            <div className="text-h6-medium text-primary">{providerName} 提供的详情用于 Plane</div>
+            <div className="text-h6-medium text-primary">在 Plane 中填入 {providerName} 侧的配置</div>
             {formFields.map((field) => (
               <ControllerInput
                 key={field.key}
@@ -94,7 +94,7 @@ export function OAuthProviderForm<T extends FieldValues>(props: Props<T>) {
             </div>
           </div>
           <div className="col-span-2 flex flex-col gap-y-6 md:col-span-1">
-            <div className="text-h6-medium text-primary">Plane 提供的详情用于 {providerName}</div>
+            <div className="text-h6-medium text-primary">在 {providerName} 中填入 Plane 生成的配置</div>
             <div className="flex flex-col gap-y-4">
               <div className="flex flex-col gap-y-4 rounded-lg bg-layer-1 px-6 py-4">
                 {serviceDetails.map((field) => (
@@ -105,7 +105,7 @@ export function OAuthProviderForm<T extends FieldValues>(props: Props<T>) {
                 <div className="flex flex-col overflow-hidden rounded-lg">
                   <div className="flex items-center gap-x-2 bg-layer-3 px-6 py-3 text-caption-sm-medium text-secondary uppercase">
                     <MonitorOutline className="size-3.5" />
-                    Web
+                    网页
                   </div>
                   <div className="flex flex-col gap-y-4 bg-layer-1 px-6 py-4">
                     {webServiceDetails.map((field) => (

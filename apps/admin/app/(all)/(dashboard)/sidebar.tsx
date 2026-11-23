@@ -8,7 +8,6 @@ import { useEffect } from "react";
 import { observer } from "mobx-react";
 // plane internal packages
 import { TooltipProvider } from "@makeplane/propel/components/tooltip";
-import { useTranslation } from "@plane/i18n";
 import { cn } from "@plane/utils";
 // hooks
 import { useTheme } from "@/hooks/store";
@@ -21,8 +20,6 @@ import { AdminSidebarMenu } from "./sidebar-menu";
 const isMobileViewport = () => window.innerWidth < 768;
 
 export const AdminSidebar = observer(function AdminSidebar() {
-  // plane hooks
-  const { t } = useTranslation();
   // store
   const { isSidebarCollapsed, toggleSidebar } = useTheme();
 
@@ -54,7 +51,7 @@ export const AdminSidebar = observer(function AdminSidebar() {
         <button
           type="button"
           tabIndex={-1}
-          aria-label={t("aria_labels.projects_sidebar.collapse_sidebar")}
+          aria-label="收起侧边栏"
           className="fixed inset-0 z-20 bg-backdrop md:hidden"
           onClick={() => toggleSidebar(true)}
         />

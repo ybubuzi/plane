@@ -44,14 +44,14 @@ const InstanceGitlabAuthenticationPage = observer(function InstanceGitlabAuthent
     const updateConfigPromise = updateInstanceConfigurations(payload);
 
     setPromiseToast(updateConfigPromise, {
-      loading: "Saving Configuration",
+      loading: "正在保存配置",
       success: {
-        title: "Configuration saved",
-        message: () => `GitLab authentication is now ${value === "1" ? "active" : "disabled"}.`,
+        title: "配置已保存",
+        message: () => `GitLab 身份验证已${value === "1" ? "启用" : "关闭"}。`,
       },
       error: {
         title: "错误",
-        message: () => "Failed to save configuration",
+        message: () => "保存配置失败",
       },
     });
 
@@ -69,11 +69,11 @@ const InstanceGitlabAuthenticationPage = observer(function InstanceGitlabAuthent
       customHeader={
         <AuthenticationMethodCard
           name="GitLab"
-          description="Allow members to login or sign up to plane with their GitLab accounts."
+          description="允许成员使用 GitLab 账户登录或注册 Plane。"
           icon={<img src={GitlabLogo} height={24} width={24} alt="GitLab Logo" />}
           config={
             <Switch
-              aria-label="Enable GitLab authentication"
+              aria-label="启用 GitLab 身份验证"
               checked={Boolean(parseInt(enableGitlabConfig))}
               onCheckedChange={() => {
                 if (Boolean(parseInt(enableGitlabConfig)) === true) {
@@ -106,6 +106,6 @@ const InstanceGitlabAuthenticationPage = observer(function InstanceGitlabAuthent
   );
 });
 
-export const meta: Route.MetaFunction = () => [{ title: "GitLab Authentication - God Mode" }];
+export const meta: Route.MetaFunction = () => [{ title: "GitLab 身份验证 - 管理后台" }];
 
 export default InstanceGitlabAuthenticationPage;

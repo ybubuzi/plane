@@ -50,14 +50,14 @@ const InstanceGithubAuthenticationPage = observer(function InstanceGithubAuthent
     const updateConfigPromise = updateInstanceConfigurations(payload);
 
     setPromiseToast(updateConfigPromise, {
-      loading: "Saving Configuration",
+      loading: "正在保存配置",
       success: {
-        title: "Configuration saved",
-        message: () => `GitHub authentication is now ${value === "1" ? "active" : "disabled"}.`,
+        title: "配置已保存",
+        message: () => `GitHub 身份验证已${value === "1" ? "启用" : "关闭"}。`,
       },
       error: {
         title: "错误",
-        message: () => "Failed to save configuration",
+        message: () => "保存配置失败",
       },
     });
 
@@ -78,7 +78,7 @@ const InstanceGithubAuthenticationPage = observer(function InstanceGithubAuthent
       customHeader={
         <AuthenticationMethodCard
           name="GitHub"
-          description="Allow members to login or sign up to plane with their GitHub accounts."
+          description="允许成员使用 GitHub 账户登录或注册 Plane。"
           icon={
             <img
               src={resolveGeneralTheme(resolvedTheme) === "dark" ? githubDarkModeImage : githubLightModeImage}
@@ -89,7 +89,7 @@ const InstanceGithubAuthenticationPage = observer(function InstanceGithubAuthent
           }
           config={
             <Switch
-              aria-label="Enable GitHub authentication"
+              aria-label="启用 GitHub 身份验证"
               checked={isGithubEnabled}
               onCheckedChange={() => {
                 updateConfig("IS_GITHUB_ENABLED", isGithubEnabled ? "0" : "1");
@@ -118,6 +118,6 @@ const InstanceGithubAuthenticationPage = observer(function InstanceGithubAuthent
   );
 });
 
-export const meta: Route.MetaFunction = () => [{ title: "GitHub Authentication - God Mode" }];
+export const meta: Route.MetaFunction = () => [{ title: "GitHub 身份验证 - 管理后台" }];
 
 export default InstanceGithubAuthenticationPage;

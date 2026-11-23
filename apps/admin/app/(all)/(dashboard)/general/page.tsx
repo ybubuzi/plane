@@ -21,8 +21,7 @@ function GeneralPage() {
     <PageWrapper
       header={{
         title: "常规设置",
-        description:
-          "更改实例名称和实例管理员邮箱地址，启用或禁用实例遥测。",
+        description: "更改实例名称和实例管理员邮箱地址，启用或禁用实例遥测。",
       }}
     >
       {instance && instanceAdmins && <GeneralConfigurationForm instance={instance} instanceAdmins={instanceAdmins} />}

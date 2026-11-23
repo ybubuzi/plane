@@ -35,14 +35,14 @@ const InstanceEmailPage = observer(function InstanceEmailPage(_props: Route.Comp
         await disableEmail();
         setIsSMTPEnabled(false);
         setToast({
-          title: "Email feature disabled",
-          message: "Email feature has been disabled",
+          title: "邮件功能已关闭",
+          message: "邮件功能已关闭",
           type: "success",
         });
       } catch (_error) {
         setToast({
-          title: "Error disabling email",
-          message: "Failed to disable email feature. Please try again.",
+          title: "关闭邮件功能失败",
+          message: "无法关闭邮件功能，请重试。",
           type: "error",
         });
       } finally {
@@ -66,7 +66,7 @@ const InstanceEmailPage = observer(function InstanceEmailPage(_props: Route.Comp
           <>
             Plane 可以从您自己的实例向您和用户发送实用邮件，无需经过互联网。
             <div className="text-body-xs-regular text-tertiary">
-              Set it up below and please test your settings before you save them.&nbsp;
+              请在下方完成配置，并在保存前先测试您的设置。&nbsp;
               <span className="text-danger-primary">配置错误可能导致邮件退回和错误。</span>
             </div>
           </>
@@ -77,7 +77,7 @@ const InstanceEmailPage = observer(function InstanceEmailPage(_props: Route.Comp
           </Skeleton>
         ) : (
           <Switch
-            aria-label="Enable SMTP email"
+            aria-label="启用 SMTP 邮件"
             checked={isSMTPEnabled}
             onCheckedChange={handleToggle}
             size="sm"

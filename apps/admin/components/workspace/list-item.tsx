@@ -49,7 +49,7 @@ export const WorkspaceListItem = observer(function WorkspaceListItem({ workspace
             </h3>
             <div className="flex max-w-full min-w-0 items-center gap-2.5">
               <span className="shrink-0">/</span>
-              <Tooltip label="The unique URL of your workspace">
+              <Tooltip label="您工作区的唯一 URL">
                 <h4 className="min-w-0 truncate text-body-xs-regular text-tertiary" title={workspace.slug}>
                   [{workspace.slug}]
                 </h4>

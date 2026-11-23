@@ -47,16 +47,16 @@ export function InstanceGoogleConfigForm(props: Props) {
     {
       key: "GOOGLE_CLIENT_ID",
       type: "text",
-      label: "Client ID",
+      label: "客户端 ID",
       description: (
         <>
-          Your client ID lives in your Google API Console.{" "}
+          您的客户端 ID 位于 Google API 控制台中。{" "}
           <a
             href="https://developers.google.com/identity/protocols/oauth2/javascript-implicit-flow#creatingcred"
             target="_blank"
             className="text-accent-primary hover:underline"
             rel="noreferrer"
-            aria-label="Google OAuth client ID documentation"
+            aria-label="Google OAuth 客户端 ID 文档"
           >
             了解更多
           </a>
@@ -69,16 +69,16 @@ export function InstanceGoogleConfigForm(props: Props) {
     {
       key: "GOOGLE_CLIENT_SECRET",
       type: "password",
-      label: "Client secret",
+      label: "客户端密钥",
       description: (
         <>
-          Your client secret should also be in your Google API Console.{" "}
+          您的客户端密钥同样位于 Google API 控制台中。{" "}
           <a
             href="https://developers.google.com/identity/oauth2/web/guides/get-google-api-clientid"
             target="_blank"
             className="text-accent-primary hover:underline"
             rel="noreferrer"
-            aria-label="Google OAuth client secret documentation"
+            aria-label="Google OAuth 客户端密钥文档"
           >
             了解更多
           </a>
@@ -93,18 +93,18 @@ export function InstanceGoogleConfigForm(props: Props) {
   const GOOGLE_COMMON_SERVICE_DETAILS: TCopyField[] = [
     {
       key: "Origin_URL",
-      label: "Origin URL",
+      label: "来源 URL",
       url: originURL,
       description: (
         <p>
-          We will auto-generate this. Paste this into your{" "}
-          <CodeBlock darkerShade>Authorized JavaScript origins</CodeBlock> field. For this OAuth client{" "}
+          此值会自动生成，请将其填入您的 <CodeBlock darkerShade>Authorized JavaScript origins</CodeBlock> 字段。该 OAuth
+          客户端的凭据可在{" "}
           <a
             href="https://console.cloud.google.com/apis/credentials/oauthclient"
             target="_blank"
             className="text-accent-primary hover:underline"
             rel="noreferrer"
-            aria-label="Google Cloud Console OAuth client credentials"
+            aria-label="Google Cloud Console OAuth 客户端凭据"
           >
             此处获取。
           </a>
@@ -116,18 +116,18 @@ export function InstanceGoogleConfigForm(props: Props) {
   const GOOGLE_SERVICE_DETAILS: TCopyField[] = [
     {
       key: "Callback_URI",
-      label: "Callback URI",
+      label: "回调地址",
       url: `${originURL}/auth/google/callback/`,
       description: (
         <p>
-          We will auto-generate this. Paste this into your <CodeBlock darkerShade>Authorized Redirect URI</CodeBlock>{" "}
-          field. For this OAuth client{" "}
+          此值会自动生成，请将其填入您的 <CodeBlock darkerShade>Authorized Redirect URI</CodeBlock> 字段。该 OAuth
+          客户端的凭据可在{" "}
           <a
             href="https://console.cloud.google.com/apis/credentials/oauthclient"
             target="_blank"
             className="text-accent-primary hover:underline"
             rel="noreferrer"
-            aria-label="Google Cloud Console OAuth client credentials"
+            aria-label="Google Cloud Console OAuth 客户端凭据"
           >
             此处获取。
           </a>

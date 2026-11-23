@@ -13,7 +13,6 @@ import { LoadingOutline as LoaderIcon } from "@makeplane/propel/icons";
 import { Button } from "@makeplane/propel/components/button";
 import { Switch } from "@makeplane/propel/components/switch";
 import { EmptyStateCompact } from "@plane/blocks/empty-state";
-import { useTranslation } from "@plane/i18n";
 import type { TInstanceConfigurationKeys } from "@plane/types";
 import { cn } from "@plane/utils";
 // components
@@ -27,8 +26,6 @@ import { useInstance, useWorkspace } from "@/hooks/store";
 import type { Route } from "./+types/page";
 
 const WorkspaceManagementPage = observer(function WorkspaceManagementPage(_props: Route.ComponentProps) {
-  // plane hooks
-  const { t } = useTranslation();
   // states
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   // store
@@ -58,14 +55,14 @@ const WorkspaceManagementPage = observer(function WorkspaceManagementPage(_props
     const updateConfigPromise = updateInstanceConfigurations(payload);
 
     setPromiseToast(updateConfigPromise, {
-      loading: "Saving configuration",
+      loading: "正在保存配置",
       success: {
         title: "成功",
-        message: () => "Configuration saved successfully",
+        message: () => "配置已保存",
       },
       error: {
         title: "错误",
-        message: () => "Failed to save configuration",
+        message: () => "保存配置失败",
       },
     });
 
@@ -91,11 +88,9 @@ const WorkspaceManagementPage = observer(function WorkspaceManagementPage(_props
           <div className="flex w-full items-start justify-between gap-4 rounded-lg border border-subtle bg-layer-2 px-4 py-3 md:items-center md:gap-8">
             <div className="flex min-w-0 grow items-center gap-4">
               <div className="min-w-0 grow">
-                <div className="pb-1 text-body-sm-medium text-primary">
-                  Prevent anyone else from creating a workspace.
-                </div>
+                <div className="pb-1 text-body-sm-medium text-primary">禁止其他人创建工作区。</div>
                 <div className="text-body-xs-regular leading-5 text-tertiary">
-                  Toggling this on will let only you create workspaces. You will have to invite users to new workspaces.
+                  开启后仅您本人可以创建工作区，其他用户需要由您邀请加入新的工作区。
                 </div>
               </div>
             </div>
@@ -111,7 +106,7 @@ const WorkspaceManagementPage = observer(function WorkspaceManagementPage(_props
                     }
                   }}
                   size="sm"
-                  aria-label="Prevent anyone else from creating a workspace"
+                  aria-label="禁止其他人创建工作区"
                   disabled={isSubmitting}
                 />
               </div>
@@ -127,14 +122,13 @@ const WorkspaceManagementPage = observer(function WorkspaceManagementPage(_props
             <div className="flex flex-col gap-3 pt-6 sm:flex-row sm:items-center sm:justify-between">
               <div className="flex flex-col items-start gap-x-2">
                 <div className="flex items-center gap-2 text-body-md-medium">
-                  All workspaces on this instance <span className="text-tertiary">• {workspaceIds.length}</span>
+                  此实例上的全部工作区 <span className="text-tertiary">• {workspaceIds.length}</span>
                   {workspaceLoader && ["mutation", "pagination"].includes(workspaceLoader) && (
                     <LoaderIcon className="h-4 w-4 animate-spin" />
                   )}
                 </div>
                 <div className="text-body-xs-regular leading-5 text-tertiary">
-                  You can&apos;t yet delete workspaces and you can only go to the workspace if you are an Admin or a
-                  Member.
+                  目前暂不支持删除工作区；只有管理员或成员才能进入工作区。
                 </div>
               </div>
               <div className="flex items-center gap-2">
@@ -154,8 +148,8 @@ const WorkspaceManagementPage = observer(function WorkspaceManagementPage(_props
               ) : paginationInfo ? (
                 <EmptyStateCompact
                   assetKey="project"
-                  title={t("instance_workspaces.empty_state.title")}
-                  description={t("instance_workspaces.empty_state.description")}
+                  title="暂无工作区"
+                  description="在此实例上创建的工作区将显示在这里。"
                   rootClassName="rounded-lg border border-subtle py-10"
                 />
               ) : null}
